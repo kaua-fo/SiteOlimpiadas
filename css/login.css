@@ -1,0 +1,116 @@
+*{
+    margin:0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    }
+  header {
+    background: #5167b2;
+    padding: 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    }
+body{
+    background:rgb(221, 228, 245);
+}
+  h6 {
+    color: white;
+    font-weight: 100;
+    font-size:28px;
+    }
+.background-form{
+  background-color: white;
+  margin: 100px 70px;
+  padding: 50px;
+  border-radius: 10px;
+  text-align: center;
+  
+}
+input[type=email] {
+  background-color: #b3c4ff;
+  color: white;
+  padding: 16px 160px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  }
+input[type=tel] {
+  background-color: #b3c4ff;
+  color: white;
+  padding: 16px 160px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+
+  }
+input[type=submit] {
+  background-color: #5167b2;
+  color: white;
+  padding: 15px 215px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+  }
+footer {
+  width: 100%;
+  min-height: 40px;
+  background: #5167b2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 106px;
+  margin-top: 10px;
+  }
+img {
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  }
+span {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-weight: 100;
+  font-size:28px;
+  }
+.linkFooter{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size:20px;
+}
+button {
+  border-radius: 30px;
+  background-color: #e7e7e7; color: black;
+  border: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  }
+a {
+  text-decoration: none;
+  color: black;
+  transition: border 0.3s ease;
+  }
+a:hover {
+  border: 1px #5167b2;
+  border-radius: 4px;
+  }
+form {
+  background-color: white;
+  margin: 0px 400px;
+  padding: 60px;
+  border:#5167b2 solid 1px;
+  border-radius: 25px;
+  text-align: center;
+}
+h1{
+  font-weight: 800;
+  font-size:25px;
+}
