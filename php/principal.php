@@ -6,7 +6,7 @@
             <?php foreach ($listaNoticia as $topico) { ?>
                 <section class="gridContainer">
                     <div calss="mainContent">
-                        <a class="pag-link" href="./php/medina.php">
+                        <a class="pag-link" href="<?= $topico["href"] ;?>">
                             <div class="categoryCard">
                                 <img alt="mainCardImg" class="mainCardImg" src="<?= $topico["imagem"] ;?>" width=320px height=180px>
                                 <p class="mainCategoryCardTitle"><?= $topico["título"] ;?></p>
