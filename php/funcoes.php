@@ -4,7 +4,8 @@ function criarLista(){
         "título" => "GABRIEL MEDINA",
         "descrição" => "A estrela brasileira Gabriel Medina começou a surfar aos oito anos, após o divórcio de seus pais. Seu padrasto, Charlao, era um surfista amador que ajudou a alimentar a paixão de Medina pelo esporte. Uma vitória no Rip Curl Grom Search aos 11 anos deu início a uma sucessão de títulos amadores, regionais e nacionais. Em 2011, Medina se tornou o surfista brasileiro mais jovem a ter acesso ao WSL Championship Tour (CT), com apenas 17 anos. Apesar de ter entrado na turnê no meio da temporada, o brasileiro se tornou uma estrela em ascensão ao vencer dois eventos em sua temporada de estreia. Com 1,80 m de altura, a estrela em ascensão fez história como o primeiro surfista brasileiro a vencer o Campeonato Mundial em 2014. Ele continuou a dominar o esporte, conquistando um lugar entre os três primeiros nos três anos seguintes e, finalmente, conquistando os títulos mundiais novamente em 2018 e 2021, o que consolidou seu status como o surfista número um do mundo.",
         "imagem" => "./imagens/medina.jpg",
-        "href" => "./php/medina.php"
+        "href" => "https://localhost/siteOlimpiadas/index.php?pagina=medina"
+        //"href" => "./php/medina.php"
     );
     $listaNoticia[1] = array(
         "título" => "RAYSSA LEAL",
@@ -38,4 +39,19 @@ function criarLista(){
     );
     return $listaNoticia;
 };
+/**
+ * TimeZone
+ * Retorna o fuso horário local
+ * que definirá a hora e a data
+ */
+function timeZone(){
+    date_default_timezone_set("America/Recife");
+}
+/**
+ * DataAtual
+ * Retorna a data atualizada
+ */
+function dataAtual(){
+
+}
 ?>

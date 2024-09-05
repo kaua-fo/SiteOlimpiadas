@@ -10,8 +10,10 @@ if($_GET && isset($_GET['pagina'])){
 include_once('./php/header.php');
 if($paginaUrl == "principal"){
     include_once('./php/principal.php');
-}else{
+}
+if($paginaUrl == "medina"){
     include_once('./php/medina.php');
 }
+if
 include_once('./php/footer.php'); 
 ?>

@@ -17,9 +17,10 @@ include_once('funcoes.php');
 </head>
 <header>
     <?php if($exibir_titulo){ ?>
-        <a href="index.php"><h6>InfOlympic</h6></a>
+        <a href="https://localhost/siteOlimpiadas/index.php?pagina=principal"><h6>InfOlympic</h6></a>
     <?php } ?>
         <nav><button class="botao" type="button"><a href="./php/login.php">Login</a></button>
         <button class="botao" type="button"><a href="./php/registro.php">Registro</a></button>
         <button class="botao" type="button"><a href="./php/contato.php">Contato</a></button></nav>
 </header>
+<body>

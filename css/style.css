@@ -124,3 +124,18 @@ h6 {
   color: white;
   font-size:20px;
 }
+
+/* Aqui começa a página interna dos atletas */ 
+
+.divInterna{
+  background-color:rgb(217, 217, 215);
+  margin: 10px 10px;
+  padding: 100px;
+  border:#5167b2 solid 5px;
+  text-align: center;
+}
+.title{
+  margin-top: 10px;
+  font-weight: 700;
+  font-size:20px;
+}

@@ -1,4 +1,3 @@
-<body>
 <?php $listaNoticia = criarLista(); ?>
         <br>
         <h1><?php echo $titulo; ?></h1>
