@@ -2,9 +2,6 @@
 $titulo = "BEM VINDO À INFOLYMPIC!";
 $sub_titulo = "Aqui é onde você encontra informações sobre os principais atletas brasileiros nas olimpíadas.";
 $exibir_titulo = true;
-function letraMaiuscula($x){
-    echo strtoupper($x);
-};
 include_once('funcoes.php');
 ?>
 <!DOCTYPE html>
@@ -24,3 +21,4 @@ include_once('funcoes.php');
         <button class="botao" type="button"><a href="./php/contato.php">Contato</a></button></nav>
 </header>
 <body>
+<?php $listaNoticia = criarLista(); ?>

@@ -14,6 +14,11 @@ if($paginaUrl == "principal"){
 if($paginaUrl == "medina"){
     include_once('./php/medina.php');
 }
-if
+if($paginaUrl == "rayssa"){
+    include_once('./php/rayssa.php');
+}
+if($paginaUrl == "rebeca"){
+    include_once('./php/rebeca.php');
+}
 include_once('./php/footer.php'); 
 ?>

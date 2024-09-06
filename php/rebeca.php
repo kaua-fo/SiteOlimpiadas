@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="Rebeca Andrade" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/atletas.css">
-    <title>Rebeca Andrade</title>
-</head>
-<body>
-    <header>
-        <a href="../index.php"><h6>InfOlympic</h6></a>
-        <nav><button type="button"><a href="../php/login.php">Login</a></button>
-        <button type="button"><a href="../php/registro.php">Registro</a></button>
-        <button type="button"><a href="../php/contato.php">Contato</a></button></nav>
-    </header>
         <br>
         <h1>BEM VINDO À INFOLYMPIC</h1>
         <br>

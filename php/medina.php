@@ -1,4 +1,3 @@
-<?php $listaNoticia = criarLista(); ?>
         <br>
         <h1>BEM VINDO À INFOLYMPIC</h1>
         <br>
@@ -7,6 +6,6 @@
         <br>
     <div class="divInterna">
         <img src="<?= $listaNoticia[0]['imagem'];?>">
-        <h1 class="title"><?= $listaNoticia[0]['título'];?></h1>
-        <p class="info"><?= $listaNoticia[0]['descrição'];?></p>
+        <h1 class="title"><?= $listaNoticia[0]['titulo'];?></h1>
+        <p class="info"><?= $listaNoticia[0]['descricao'];?></p>
     </div>
