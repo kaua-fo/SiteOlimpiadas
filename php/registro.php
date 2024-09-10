@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="Gabriel Medina" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/registro.css">
-    <title>Gabriel Medina</title>
-</head>
-<body>
-    <header>
-        <a href="../index.php"><h6>InfOlympic</h6></a>
-        <nav><button type="button"><a href="../php/login.php">Login</a></button>
-        <button type="button"><a href="../php/registro.php">Registro</a></button>
-        <button type="button"><a href="../php/contato.php">Contato</a></button></nav>
-    </header>
     <div class="background-form">
         <form>
             <h1>Cadastre-se para acompanhas as notícias:</h1>
@@ -40,6 +25,3 @@
             </div>
         </form>
     </div>
-    <footer><span>InfOlympic</span><a class="linkFooter" href="#top">Voltar para o topo</a></footer>
-</body>
-</html>

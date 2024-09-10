@@ -10,15 +10,24 @@ include_once('funcoes.php');
     <meta charset="UTF-8">
     <meta name="InfOlympic" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+        <?php if($paginaUrl === "login"): ?>
+            <link rel="stylesheet" href="./css/login.css">
+        <?php endif ?>
+        <?php if($paginaUrl === "contato"): ?>
+            <link rel="stylesheet" href="./css/contato.css">
+        <?php endif ?>
+        <?php if($paginaUrl === "registro"): ?>
+            <link rel="stylesheet" href="./css/registro.css">
+        <?php endif ?>
     <title>InfOlympic</title>
 </head>
 <header>
     <?php if($exibir_titulo){ ?>
         <a href="https://localhost/siteOlimpiadas/index.php?pagina=principal"><h6>InfOlympic</h6></a>
     <?php } ?>
-        <nav><button class="botao" type="button"><a href="./php/login.php">Login</a></button>
-        <button class="botao" type="button"><a href="./php/registro.php">Registro</a></button>
-        <button class="botao" type="button"><a href="./php/contato.php">Contato</a></button></nav>
+        <nav><button class="botao" type="button"><a href="https://localhost/siteOlimpiadas/index.php?pagina=login">Login</a></button>
+        <button class="botao" type="button"><a href="https://localhost/siteOlimpiadas/index.php?pagina=registro">Registro</a></button>
+        <button class="botao" type="button"><a href="https://localhost/siteOlimpiadas/index.php?pagina=contato">Contato</a></button></nav>
 </header>
 <body>
 <?php $listaNoticia = criarLista(); ?>

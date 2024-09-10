@@ -9,7 +9,7 @@
                             <div class="categoryCard">
                                 <img alt="mainCardImg" class="mainCardImg" src="<?= $topico["imagem"] ;?>" width=320px height=180px>
                                 <p class="mainCategoryCardTitle"><?= $topico["titulo"] ;?></p>
-                                <p class="mainCategoryCardDescription"><?= $topico["descricao"] ;?></p>
+                                <p class="mainCategoryCardDescription"><?= reduzirStr($topico["descricao"], 200) ;?></p>
                             </div>
                         </a>
                     </div>
