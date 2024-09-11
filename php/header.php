@@ -23,11 +23,11 @@ include_once('funcoes.php');
 </head>
 <header>
     <?php if($exibir_titulo){ ?>
-        <a href="https://localhost/siteOlimpiadas/index.php?pagina=principal"><h6>InfOlympic</h6></a>
+        <a href="https://localhost/infOlympic/index.php?pagina=principal"><h6>InfOlympic</h6></a>
     <?php } ?>
-        <nav><button class="botao" type="button"><a href="https://localhost/siteOlimpiadas/index.php?pagina=login">Login</a></button>
-        <button class="botao" type="button"><a href="https://localhost/siteOlimpiadas/index.php?pagina=registro">Registro</a></button>
-        <button class="botao" type="button"><a href="https://localhost/siteOlimpiadas/index.php?pagina=contato">Contato</a></button></nav>
+        <nav><button class="botao" type="button"><a href="https://localhost/infOlympic/index.php?pagina=login">Login</a></button>
+        <button class="botao" type="button"><a href="https://localhost/infOlympic/index.php?pagina=registro">Registro</a></button>
+        <button class="botao" type="button"><a href="https://localhost/infOlympic/index.php?pagina=contato">Contato</a></button></nav>
 </header>
 <body>
 <?php $listaNoticia = criarLista(); ?>
