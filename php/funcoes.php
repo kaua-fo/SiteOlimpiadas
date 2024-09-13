@@ -36,6 +36,12 @@ function criarLista(){
         "imagem" => "./imagens/flavia.jpg",
         "href" => "https://localhost/infOlympic/?pagina=flavia"
     );
+    $listaNoticia[6] = array(
+        "titulo" => "GUILHERME COSTA",
+        "descricao" => "Nascido em Itaguaí, no Rio de Janeiro, o atleta começou a ser chamado de Cachorrão ainda na infância. Segundo ele mesmo contou no Pan-Americano do ano passado, ele jogava bola com alguns amigos, em Angra dos Reis, quando foi mordido por um cão. “A gente voltou no dia seguinte e o cachorro não estava [mais lá], aí os amigos ficaram me zoando dizendo que ele morreu depois de me morder”, contou o nadador em entrevista ao jornal Lance!. Hoje, o atleta divide seus dias com outro canino: o Thorpe. O cachorro da raça golden retriever foi batizado em homenagem ao nadador australiano Ian Thorpe, que conquistou cinco medalhas de ouro em Jogos Olímpicos.",
+        "imagem" => "./imagens/guilherme.jpg",
+        "href" => "https://localhost/infOlympic/?pagina=guilherme"
+    );
     return $listaNoticia;
 };
 
