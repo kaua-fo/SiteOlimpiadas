@@ -42,6 +42,12 @@ function criarLista(){
         "imagem" => "./imagens/guilherme.jpg",
         "href" => "https://localhost/infOlympic/?pagina=guilherme"
     );
+    $listaNoticia[7] = array(
+        "titulo" => "HUGO CALDERANO",
+        "descricao" => "Todo mundo sabe que Hugo Calderano é sinônimo de foco. O mesa-tenista brasileiro que competiu nas Olimpíadas de Paris 2024 tirou até nota máxima em um teste de concentração da série 'O Cérebro dos Atletas', do Fantástico. Mas o que muita gente talvez não deve saber, é que todo esse foco e dedicação ajudaram o atleta ao longo dos últimos anos a aprender a falar inglês, espanhol, alemão, italiano, francês e até mandarim. Isso mesmo, nosso mesa-tenista olímpico é poliglota. Junto com o português, ele fala 7 idiomas. Ao g1, Hugo conta que aprendeu todas essas línguas ao longo da vida, muitas vezes por necessidade, outras por interesse pessoal. Seu domínio desses idiomas se deve à convivência com pessoas de diferentes nacionalidades e ao esforço pessoal em estudar e praticar cada uma delas.",
+        "imagem" => "./imagens/hugo.jpg",
+        "href" => "https://localhost/infOlympic/?pagina=hugo"
+    );
     return $listaNoticia;
 };
 

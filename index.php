@@ -32,6 +32,8 @@ if($paginaUrl === "principal"){
     include_once('./php/flavia.php');
 }elseif($paginaUrl === "guilherme"){
     include_once('./php/guilherme.php');
+}elseif($paginaUrl === "hugo"){
+    include_once('./php/hugo.php');
 }else{
     include_once('./php/paginaErro.php');
 }

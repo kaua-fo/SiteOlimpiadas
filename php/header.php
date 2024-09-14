@@ -2,6 +2,7 @@
 $titulo = "BEM VINDO À INFOLYMPIC!";
 $sub_titulo = "Aqui é onde você encontra informações sobre os principais atletas brasileiros nas olimpíadas.";
 $exibir_titulo = true;
+include_once('configuracao.php');
 include_once('funcoes.php');
 ?>
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ include_once('funcoes.php');
     <?php } ?>
         <nav><button class="botao" type="button"><a href="https://localhost/infOlympic/?pagina=login">Login</a></button>
         <button class="botao" type="button"><a href="https://localhost/infOlympic/?pagina=registro">Registro</a></button>
-        <button class="botao" type="button"><a href="https://localhost/infOlympic/?pagina=contato">Contato</a></button></nav>
+        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'contato'?>">Contato</a></button></nav>
 </header>
 <body>
 <?php $listaNoticia = criarLista(); ?>
