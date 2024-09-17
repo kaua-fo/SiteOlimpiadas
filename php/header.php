@@ -1,7 +1,4 @@
 <?php
-$titulo = "BEM VINDO À INFOLYMPIC!";
-$sub_titulo = "Aqui é onde você encontra informações sobre os principais atletas brasileiros nas olimpíadas.";
-$exibir_titulo = true;
 include_once('configuracao.php');
 include_once('funcoes.php');
 ?>
@@ -20,14 +17,12 @@ include_once('funcoes.php');
         <?php if($paginaUrl === "registro"): ?>
             <link rel="stylesheet" href="./css/registro.css">
         <?php endif ?>
-    <title>InfOlympic</title>
+<title>InfOlympic</title>
 </head>
 <header>
-    <?php if($exibir_titulo){ ?>
         <a href="https://localhost/infOlympic/?pagina=principal"><h6>InfOlympic</h6></a>
-    <?php } ?>
-        <nav><button class="botao" type="button"><a href="https://localhost/infOlympic/?pagina=login">Login</a></button>
-        <button class="botao" type="button"><a href="https://localhost/infOlympic/?pagina=registro">Registro</a></button>
+        <nav><button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'login'?>">Login</a></button>
+        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'registro'?>">Registro</a></button>
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'contato'?>">Contato</a></button></nav>
 </header>
 <body>

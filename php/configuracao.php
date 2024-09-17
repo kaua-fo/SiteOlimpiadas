@@ -5,10 +5,10 @@ switch ('localhost') {
     case 'localhost':
         $enviroment['local'] = "https://localhost/";
         break;
-    case 'homol'
+    case 'homol':
         $enviroment['homol'] = "";
         break;
-    case 'prod'
+    case 'prod':
         $enviroment['prod'] = "";
         break;
 }
