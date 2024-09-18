@@ -62,6 +62,14 @@ function timeZone(){
     date_default_timezone_set("America/Recife");
 }
 
+function calcularImc($peso,$altura){
+    $resposta = 0;
+    if($peso && $altura){
+        $resposta = $peso / ($altura * $altura);
+    }
+    return $resposta;
+}
+
 /**
  * DataAtual
  * Retorna a data atualizada

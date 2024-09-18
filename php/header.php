@@ -1,6 +1,7 @@
 <?php
 include_once('configuracao.php');
 include_once('funcoes.php');
+$resposta=calcularImc($peso,$altura);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

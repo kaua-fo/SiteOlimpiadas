@@ -16,35 +16,26 @@
         <aside class="sidebar">
             <div class="sidebarContent">
                 <div class="IMC">
-                    <form method="POST" action="imc.php">
-                        <div>
+                    <form method="POST" action="#">
                             <p>Índice de massa corporal</p>
-                        </div>
-                        <div>
-                            <div>
-                                <br>
-                                <label for="itext">Peso(Kg):</label>
-                                <br>
-                                <br>
-                                <input name="peso" placeholder="Digite seu peso..." id="itext" type="text"/>
-                                <br>
-                                <br>
-                            </div>
-                            <div>
-                                <label for="itext">Altura(M):</label>
-                                <br>
-                                <br>
-                                <input name="altura" placeholder="Digite sua altura..." id="itext" type="text"/>
-                                <br>
-                                <br>
-                            </div>
-                            <div>
-                                <input type="submit" value="Calcular"/>
-                            </div>
-                        </div>
+                            <br>
+                            <label for="itext">Peso(Kg):</label>
+                            <br>
+                            <br>
+                            <input name="peso" placeholder="Digite seu peso..." id="itext" type="text"/>
+                            <br>
+                            <br>
+                            <label for="itext">Altura(M):</label>
+                            <br>
+                            <br>
+                            <input name="altura" placeholder="Digite sua altura..." id="itext" type="text"/>
+                            <br>
+                            <br>
+                            <input type="submit" value="Calcular"/>
                     </form>
-            </div>
+                    reposta: <?= $resposta ?>
                 </div>
+            </div>
         </aside>
         </section>
 </div>
