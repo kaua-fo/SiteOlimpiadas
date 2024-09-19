@@ -13,6 +13,9 @@ if($_GET && isset($_GET['pagina'])){
 
 include_once('./php/header.php');
 
+$resposta=calcularImc($peso,$altura);
+$estado=tabelaImc($resposta);
+
 if($paginaUrl === "principal"){
     include_once('./php/principal.php');
 }elseif($paginaUrl === "login"){

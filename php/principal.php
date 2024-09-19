@@ -33,7 +33,8 @@
                             <br>
                             <input type="submit" value="Calcular"/>
                     </form>
-                    reposta: <?= $resposta ?>
+                    reposta: <?= $resposta ?><br>
+                    estado: <?= $estado ?>
                 </div>
             </div>
         </aside>

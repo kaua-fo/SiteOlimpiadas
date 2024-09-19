@@ -62,12 +62,43 @@ function timeZone(){
     date_default_timezone_set("America/Recife");
 }
 
+/**
+ * calcularImc
+ * Calcula o Imc e retorna 
+ * o resultado
+ */
 function calcularImc($peso,$altura){
     $resposta = 0;
     if($peso && $altura){
         $resposta = $peso / ($altura * $altura);
     }
-    return $resposta;
+    return round($resposta, 2);
+}
+
+/**
+ * tabelaImc
+ * Retorna o estado da pessoa
+ * baseado no IMC dela
+ */
+function tabelaImc($imc){
+    if($imc <= 16){
+        $estado = 'Magreza grave';
+    }elseif($imc >16 && $imc <17){
+        $estado = 'Magreza moderada';
+    }elseif($imc >=17 && $imc <=18.50){
+        $estado = 'Magreza leva';
+    }elseif($imc >=18.51 && $imc <25){
+        $estado = 'Peso ideal';
+    }elseif($imc >=25 && $imc <30){
+        $estado = 'Sobrepeso';
+    }elseif($imc >=30 && $imc <35){
+        $estado = 'Obesidade grau I';
+    }elseif($imc >=35 && $imc <40){
+        $estado = 'Obesidade grau II ou severa';
+    }elseif($imc >=40){
+        $estado = 'Obesidade grau III ou mórbida';
+    }
+    return $estado;
 }
 
 /**
