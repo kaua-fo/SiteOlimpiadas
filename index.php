@@ -1,6 +1,21 @@
 <?php
+$nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nome'])) ? $_POST['nome'] : null;
+
+$email = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) ? $_POST['email'] : null;
+
 $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POST['peso'] : null;
+
 $altura = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['altura'])) ? $_POST['altura'] : null;
+
+$resposta = 0;
+
+include_once('./php/configuracao.php');
+include_once('./configuracao/conexao.php');
+include_once('./php/funcoes.php');
+$resposta = calcularImc($peso,$altura);
+$classificacao = tabelaImc($resposta);
+cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
+
 
 /**
  * Pegando informação da url
@@ -12,9 +27,6 @@ if($_GET && isset($_GET['pagina'])){
 }
 
 include_once('./php/header.php');
-
-$resposta=calcularImc($peso,$altura);
-$estado=tabelaImc($resposta);
 
 if($paginaUrl === "principal"){
     include_once('./php/principal.php');

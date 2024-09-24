@@ -18,23 +18,20 @@
                 <div class="IMC">
                     <form method="POST" action="#">
                             <p>Índice de massa corporal</p>
-                            <br>
-                            <label for="itext">Peso(Kg):</label>
-                            <br>
-                            <br>
-                            <input name="peso" placeholder="Digite seu peso..." id="itext" type="text"/>
-                            <br>
-                            <br>
-                            <label for="itext">Altura(M):</label>
-                            <br>
-                            <br>
-                            <input name="altura" placeholder="Digite sua altura..." id="itext" type="text"/>
-                            <br>
-                            <br>
+                            <label for="itext">Nome:</label><br>
+                            <input name="nome" placeholder="Digite seu nome..." id="itext" type="text"/><br>
+                            <label for="itext">Email:</label><br>
+                            <input name="email" placeholder="Digite seu emai..." id="itext" type="text"/><br>
+                            <label for="itext">Peso(Kg):</label><br>
+                            <input name="peso" placeholder="Digite seu peso..." id="itext" type="text"/><br>
+                            <label for="itext">Altura(M):</label><br>
+                            <input name="altura" placeholder="Digite sua altura..." id="itext" type="text"/><br>
                             <input type="submit" value="Calcular"/>
                     </form>
+                    <h4>
                     reposta: <?= $resposta ?><br>
-                    estado: <?= $estado ?>
+                    estado: <?= $classificacao ?>
+                    </h4>
                 </div>
             </div>
         </aside>

@@ -86,7 +86,7 @@ function tabelaImc($imc){
     }elseif($imc >16 && $imc <17){
         $estado = 'Magreza moderada';
     }elseif($imc >=17 && $imc <=18.50){
-        $estado = 'Magreza leva';
+        $estado = 'Magreza leve';
     }elseif($imc >=18.51 && $imc <25){
         $estado = 'Peso ideal';
     }elseif($imc >=25 && $imc <30){
@@ -128,6 +128,32 @@ function reduzirStr($str,$quantidade){
     if($str && $tamanho >= $quantidade){
         return substr($str,0,$quantidade)." [...]";
     }
+}
+
+function imcBuscarPorId($id)
+{
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM imc WHERE id = $id";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+function cadastrar($nome,$email,$peso,$altura,$imc,$classificacao)
+{
+    if (!$nome || !$email || !$peso || !$altura || !$imc || !$classificacao){return;}
+    $sql = "INSERT INTO `imc` (`nome`,`email`,`peso`,`altura`,`imc`,`classificacao`)
+    VALUES(:nome,:email,:peso,:altura,:imc,:classificacao)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':peso', $peso);
+    $stmt->bindParam(':altura', $altura);
+    $stmt->bindParam(':imc', $imc);
+    $stmt->bindParam(':classificacao', $classificacao);
+    $result = $stmt->execute();
+    return ($result)?true:false;
 }
 
 /**

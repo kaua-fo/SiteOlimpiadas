@@ -1,7 +1,3 @@
-<?php 
-include_once('configuracao.php');
-include_once('funcoes.php');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
