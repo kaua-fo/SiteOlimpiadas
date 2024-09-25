@@ -16,7 +16,6 @@ $resposta = calcularImc($peso,$altura);
 $classificacao = tabelaImc($resposta);
 cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
 
-
 /**
  * Pegando informação da url
  */
