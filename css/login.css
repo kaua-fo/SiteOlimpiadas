@@ -35,7 +35,7 @@ input[type=email] {
   border: none;
   border-radius: 8px;
   }
-input[type=tel] {
+input[type=text] {
   background-color: #b3c4ff;
   color: white;
   padding: 16px 160px;
@@ -43,7 +43,6 @@ input[type=tel] {
   display: inline-block;
   border: none;
   border-radius: 8px;
-
   }
 input[type=submit] {
   background-color: #5167b2;

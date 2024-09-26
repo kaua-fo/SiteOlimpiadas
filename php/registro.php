@@ -1,27 +1,11 @@
-    <div class="background-form">
-        <form>
-            <h1>Cadastre-se para acompanhas as notícias:</h1>
+<div class="background-form">
+    <form method="POST" action="#">
+        <h1>Cadastre-se para acompanhas as notícias:</h1>
+            <input name="nome" id="itext" placeholder="Nome" type="text" required>
             <br>
+            <input name="email" type="email" placeholder="Email" id="email" required>
             <br>
-            <br>
-            <div>
-                <input name="itext" id="itext" placeholder="Nome" type="text" required>
-                <br>
-                <br>
-            </div>
-            <div>
-                <input type="email" placeholder="Email" id="email" name="email" required=>
-                <br>
-                <br>
-            </div>
-            <div>
-                <input type="tel" id="phone" placeholder="Telefone" name="phone" pattern="[0-9]{2}[0-9]{4}[0-9]{4}" required>
-                <br>
-                <br>
-            </div>
-            <div>
-                <input type="submit" value="Concluir">
-                <br>
-            </div>
-        </form>
-    </div>
+            <input name="telefone" type="text" id="phone" placeholder="Telefone"  required>
+            <input type="submit" value="Concluir">
+    </form>
+</div>

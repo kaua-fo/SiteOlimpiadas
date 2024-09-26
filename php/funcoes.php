@@ -139,7 +139,7 @@ function imcBuscarPorId($id)
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $list;
 }
-function cadastrar($nome,$email,$peso,$altura,$imc,$classificacao)
+function cadastrarImc($nome,$email,$peso,$altura,$imc,$classificacao)
 {
     if (!$nome || !$email || !$peso || !$altura || !$imc || !$classificacao){return;}
     $sql = "INSERT INTO `imc` (`nome`,`email`,`peso`,`altura`,`imc`,`classificacao`)
@@ -152,6 +152,20 @@ function cadastrar($nome,$email,$peso,$altura,$imc,$classificacao)
     $stmt->bindParam(':altura', $altura);
     $stmt->bindParam(':imc', $imc);
     $stmt->bindParam(':classificacao', $classificacao);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+
+function cadastrarRegistro($nome,$email,$telefone)
+{
+    if (!$nome || !$email || !$telefone){return;}
+    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`)
+    VALUES(:nome,:email,:telefone)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':telefone', $telefone);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
