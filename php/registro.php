@@ -1,7 +1,7 @@
 <div class="background-form">
     <form method="POST" action="#">
         <h1>Cadastre-se para acompanhas as notícias:</h1>
-            <input name="nome" id="itext" placeholder="Nome" type="text" required>
+            <input name="nome" placeholder="Nome" type="text" required>
             <br>
             <input name="email" type="email" placeholder="Email" id="email" required>
             <br>

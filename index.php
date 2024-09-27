@@ -1,9 +1,13 @@
 <?php
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nome'])) ? $_POST['nome'] : null;
 
+$sobrenome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['sobrenome'])) ? $_POST['sobrenome'] : null;
+
 $email = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) ? $_POST['email'] : null;
 
 $telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone'])) ? $_POST['telefone'] : null;
+
+$mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem'])) ? $_POST['mensagem'] : null;
 
 $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POST['peso'] : null;
 
@@ -18,6 +22,7 @@ $resposta = calcularImc($peso,$altura);
 $classificacao = tabelaImc($resposta);
 cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 cadastrarRegistro($nome,$email,$telefone);
+cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 
 /**
  * Pegando informação da url

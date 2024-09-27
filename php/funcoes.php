@@ -169,6 +169,22 @@ function cadastrarRegistro($nome,$email,$telefone)
     $result = $stmt->execute();
     return ($result)?true:false;
 }
+function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
+{
+    if (!$nome || !$sobrenome || !$email || !$telefone || !$mensagem){return;}
+    $sql = "INSERT INTO `contato` (`nome`,`sobrenome`,`email`,`telefone`,`mensagem`)
+    VALUES(:nome,:sobrenome,:email,:telefone,:mensagem)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':sobrenome', $sobrenome);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':telefone', $telefone);
+    $stmt->bindParam(':mensagem', $mensagem);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+
 
 /**
  * @param $texto

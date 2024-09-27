@@ -193,6 +193,15 @@ h6 {
   font-size:20px;
 }
 
+#itext {
+  background-color: #b3c4ff;
+  text-align: center;
+  padding: 5%;
+  margin-top: 1%;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+}
 
 @media (max-width: 630px) {
   .gridContainer {

@@ -26,7 +26,7 @@
                             <input name="peso" placeholder="Digite seu peso..." id="itext" type="text"/><br>
                             <label for="itext">Altura(M):</label><br>
                             <input name="altura" placeholder="Digite sua altura..." id="itext" type="text"/><br>
-                            <input type="submit" value="Calcular"/>
+                            <input type="submit" value="Calcular"/><br>
                     </form>
                     <h4>
                     reposta: <?= $resposta ?><br>
