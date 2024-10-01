@@ -156,16 +156,18 @@ function cadastrarImc($nome,$email,$peso,$altura,$imc,$classificacao)
     return ($result)?true:false;
 }
 
-function cadastrarRegistro($nome,$email,$telefone)
+function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
 {
-    if (!$nome || !$email || !$telefone){return;}
-    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`)
-    VALUES(:nome,:email,:telefone)";
+    if (!$nome || !$email || !$telefone|| !$login|| !$senha){return;}
+    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`´,`login`,`senha`)
+    VALUES(:nome,:email,:telefone,:login,:senha)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':telefone', $telefone);
+    $stmt->bindParam(':login', $login);
+    $stmt->bindParam(':senha', criptografia($senha));
     $result = $stmt->execute();
     return ($result)?true:false;
 }
@@ -208,6 +210,11 @@ function contar($texto, $tipo){
         return strpos($texto, "Diogo");
     }
     return false;
+}
+
+function criptografia($senha){
+    if(!$senha)return False;
+    return sha1($senha);
 }
 
 /**

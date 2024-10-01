@@ -7,6 +7,10 @@ $email = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email'])) ? $_P
 
 $telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone'])) ? $_POST['telefone'] : null;
 
+$login = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login'])) ? $_POST['login'] : null;
+
+$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['senha'])) ? $_POST['senha'] : null;
+
 $mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem'])) ? $_POST['mensagem'] : null;
 
 $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POST['peso'] : null;
@@ -21,7 +25,7 @@ include_once('./php/funcoes.php');
 $resposta = calcularImc($peso,$altura);
 $classificacao = tabelaImc($resposta);
 cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
-cadastrarRegistro($nome,$email,$telefone);
+cadastrarRegistro($nome,$email,$telefone,$login,$senha);
 cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 
 /**
