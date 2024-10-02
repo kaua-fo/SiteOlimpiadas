@@ -1,0 +1,3 @@
+    <?php foreach ($listaNoticia as $cadastrar) : ?>
+        <?php cadastrarNoticia($cadastrar["titulo"],$cadastrar["descricao"],$cadastrar["imagem"],$cadastrar["href"]); ?>
+    <?php endforeach ?>

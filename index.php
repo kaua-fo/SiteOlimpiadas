@@ -28,6 +28,7 @@ cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 cadastrarRegistro($nome,$email,$telefone,$login,$senha);
 cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 
+
 /**
  * Pegando informação da url
  */
@@ -37,34 +38,15 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
+$listaUrl = array("principal","login","registro","contato","medina","rayssa","rebeca","beatriz","julia","flavia","guilherme","hugo");
+
 include_once('./php/header.php');
 
-if($paginaUrl === "principal"){
-    include_once('./php/principal.php');
-}elseif($paginaUrl === "login"){
-    include_once('./php/login.php');
-}elseif($paginaUrl === "registro"){
-    include_once('./php/registro.php');
-}elseif($paginaUrl === "contato"){
-    include_once('./php/contato.php');
-}elseif($paginaUrl === "medina"){
-    include_once('./php/medina.php');
-}elseif($paginaUrl === "rayssa"){
-    include_once('./php/rayssa.php');
-}elseif($paginaUrl === "rebeca"){
-    include_once('./php/rebeca.php');
-}elseif($paginaUrl === "beatriz"){
-    include_once('./php/beatriz.php');
-}elseif($paginaUrl === "julia"){
-    include_once('./php/julia.php');
-}elseif($paginaUrl === "flavia"){
-    include_once('./php/flavia.php');
-}elseif($paginaUrl === "guilherme"){
-    include_once('./php/guilherme.php');
-}elseif($paginaUrl === "hugo"){
-    include_once('./php/hugo.php');
-}else{
-    include_once('./php/paginaErro.php');
+foreach ($listaUrl as $url) {
+    if($paginaUrl === $url){
+        include_once('./php/'.$url.'.php');
+    }else{
+        include_once('./php/paginaErro.php');
+    }
 }
-
-include_once('./php/footer.php'); 
+include_once('./php/footer.php');

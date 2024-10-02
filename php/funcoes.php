@@ -130,6 +130,11 @@ function reduzirStr($str,$quantidade){
     }
 }
 
+function criptografia($senha){
+    if(!$senha)return False;
+    return sha1($senha);
+}
+
 function imcBuscarPorId($id)
 {
     $pdo = Database::conexao();
@@ -156,10 +161,12 @@ function cadastrarImc($nome,$email,$peso,$altura,$imc,$classificacao)
     return ($result)?true:false;
 }
 
+
 function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
 {
     if (!$nome || !$email || !$telefone|| !$login|| !$senha){return;}
-    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`´,`login`,`senha`)
+    $senha = criptografia($senha);
+    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`,`login`,`senha`)
     VALUES(:nome,:email,:telefone,:login,:senha)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
@@ -167,7 +174,7 @@ function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':login', $login);
-    $stmt->bindParam(':senha', criptografia($senha));
+    $stmt->bindParam(':senha',$senha);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
@@ -183,6 +190,20 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':mensagem', $mensagem);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+function cadastrarNoticia($titulo,$descricao,$img,$href)
+{
+    if (!$titulo || !$descricao || !$img || !$href){return;}
+    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`href`)
+    VALUES(:titulo,:descricao,:img,:href)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':titulo', $titulo);
+    $stmt->bindParam(':descricao', $descricao);
+    $stmt->bindParam(':img', $img);
+    $stmt->bindParam(':href', $href);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
@@ -210,11 +231,6 @@ function contar($texto, $tipo){
         return strpos($texto, "Diogo");
     }
     return false;
-}
-
-function criptografia($senha){
-    if(!$senha)return False;
-    return sha1($senha);
 }
 
 /**

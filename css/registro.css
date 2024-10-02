@@ -41,6 +41,18 @@ input[type=text] {
   border-radius: 8px;
 }
 
+input[type=password] {
+  text-align: center;
+  background-color: #b3c4ff;
+  color: white;
+  padding: 16px 160px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+}
+
+
 input[type=email] {
   text-align: center;
   background-color: #b3c4ff;
