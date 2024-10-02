@@ -29,6 +29,7 @@ cadastrarRegistro($nome,$email,$telefone,$login,$senha);
 cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 
 
+
 /**
  * Pegando informação da url
  */
@@ -38,15 +39,18 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-$listaUrl = array("principal","login","registro","contato","medina","rayssa","rebeca","beatriz","julia","flavia","guilherme","hugo");
+$arrayUrl = criarArrayUrl();
+$includeUrl = FALSE;
 
 include_once('./php/header.php');
-
-foreach ($listaUrl as $url) {
-    if($paginaUrl === $url){
-        include_once('./php/'.$url.'.php');
-    }else{
-        include_once('./php/paginaErro.php');
-    }
-}
+foreach($arrayUrl as $chave => $valor){
+    if($paginaUrl === $chave){
+        echo include_once($valor);
+        $includeUrl = TRUE;
+        return $includeUrl;
+    };
+};
+// if($includeUrl === FALSE){
+//     include_once('./php/paginaErro.php');
+// };
 include_once('./php/footer.php');

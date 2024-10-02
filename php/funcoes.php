@@ -1,6 +1,30 @@
 <?php
 include_once('configuracao.php');
 
+/**
+ * CriarArrayUrl
+ * Retorna a chave e o valor
+ * correspondente à informação passada
+ * na Url via GET
+ */
+function criarArrayUrl(){
+    $include = array(
+        "principal" => "./php/principal.php",
+        "login" => "./php/login.php",
+        "registro" => "./php/registro.php",
+        "contato" => "./php/contato.php",
+        "medina" => "./php/medina.php",
+        "rayssa" => "./php/rayssa.php",
+        "rebeca" => "./php/rebeca.php",
+        "beatriz" => "./php/beatriz.php",
+        "julia" => "./php/julia.php",
+        "flavia" => "./php/flavia.php",
+        "guilherme" => "./php/guilherme.php",
+        "hugo" => "./php/hugo.php"
+    );
+    return $include;
+};
+
 function criarLista(){
     $listaNoticia[0] = array(
         "titulo" => "GABRIEL MEDINA",
