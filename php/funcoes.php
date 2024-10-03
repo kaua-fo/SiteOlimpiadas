@@ -193,6 +193,7 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     $result = $stmt->execute();
     return ($result)?true:false;
 }
+
 function cadastrarNoticia($titulo,$descricao,$img,$href)
 {
     if (!$titulo || !$descricao || !$img || !$href){return;}
@@ -204,6 +205,18 @@ function cadastrarNoticia($titulo,$descricao,$img,$href)
     $stmt->bindParam(':descricao', $descricao);
     $stmt->bindParam(':img', $img);
     $stmt->bindParam(':href', $href);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+
+function buscarNoticia($id)
+{
+    if (!$id){return;}
+    $sql = "SELECT titulo, img, descricao FROM noticia WHERE id = `id` 
+    VALUES(:id)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
