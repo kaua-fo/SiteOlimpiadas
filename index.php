@@ -17,6 +17,14 @@ $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POS
 
 $altura = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['altura'])) ? $_POST['altura'] : null;
 
+$titulo = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['titulo'])) ? $_POST['titulo'] : null;
+
+$descricao = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricao'])) ? $_POST['descricao'] : null;
+
+$img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST['img'] : null;
+
+$href = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['href'])) ? $_POST['href'] : null;
+
 $resposta = 0;
 
 include_once('./php/configuracao.php');
@@ -27,8 +35,9 @@ $classificacao = tabelaImc($resposta);
 cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 cadastrarRegistro($nome,$email,$telefone,$login,$senha);
 cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
+cadastrarNoticia($titulo,$descricao,$img,$href);
 
-
+$listaNoticias = listarNoticias();
 
 /**
  * Pegando informação da url
@@ -39,18 +48,22 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-$arrayUrl = criarArrayUrl();
-$includeUrl = FALSE;
-
 include_once('./php/header.php');
-foreach($arrayUrl as $chave => $valor){
-    if($paginaUrl === $chave){
-        echo include_once($valor);
-        $includeUrl = TRUE;
-        return $includeUrl;
-    };
-};
-// if($includeUrl === FALSE){
-//     include_once('./php/paginaErro.php');
-// };
-include_once('./php/footer.php');
+
+if($paginaUrl === "principal" && !$noticiaId){
+    include_once('./php/principal.php');
+}elseif($paginaUrl === "login"){
+    include_once('./php/login.php');
+}elseif($paginaUrl === "registro"){
+    include_once('./php/registro.php');
+}elseif($paginaUrl === "cadastrarNoticia"){
+    include_once('./php/cadastrarNoticia.php');
+}elseif($paginaUrl === "contato"){
+    include_once('./php/contato.php');
+}elseif($noticiaId){
+    include_once('./php/detalhe.php');
+}else{
+    include_once('./php/paginaErro.php');
+}
+
+include_once('./php/footer.php'); 

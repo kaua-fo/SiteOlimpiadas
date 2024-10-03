@@ -13,6 +13,9 @@
         <?php if($paginaUrl === "registro"): ?>
             <link rel="stylesheet" href="./css/registro.css">
         <?php endif ?>
+        <?php if($paginaUrl === "cadastrarNoticia"): ?>
+            <link rel="stylesheet" href="./css/registro.css">
+        <?php endif ?>
 <title>InfOlympic</title>
 </head>
 <header>
@@ -20,6 +23,6 @@
         <nav><button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'login'?>">Login</a></button>
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'registro'?>">Registro</a></button>
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'contato'?>">Contato</a></button></nav>
+        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'cadastrarNoticia'?>">Cadastrar notícias</a></button></nav>
 </header>
 <body>
-<?php $listaNoticia = criarLista(); ?>

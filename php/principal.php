@@ -1,12 +1,11 @@
 <div class="container">
-<?php $listaNoticia = criarLista(); ?>
     <?php include_once('tituloSite.php'); ?>
     <section class="gridContainer">
         <div class="mainContent">
-    <?php foreach ($listaNoticia as $topico) : ?>
-                <a class="pag-link" href="<?= $topico["href"] ;?>">
+    <?php foreach ($listaNoticias as $topico) : ?>
+                <a class="pag-link" href="<?= constant('URL_LOCAL_SITE_PAGINA').'detalhe'?>&noticia=<?= $topico["id"] ;?>">
                     <div class="categoryCard">
-                        <img src="<?= $topico["imagem"] ;?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
+                        <img src="<?= $topico["img"] ;?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
                         <p class="mainCategoryCardTitle"><?= $topico["titulo"] ;?></p>
                         <p class="mainCategoryCardDescription"><?= reduzirStr($topico["descricao"], 200) ;?></p>
                     </div>
