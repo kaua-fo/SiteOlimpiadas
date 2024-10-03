@@ -50,7 +50,7 @@ if($_GET && isset($_GET['pagina'])){
 
 include_once('./php/header.php');
 
-if($paginaUrl === "principal" && !$noticiaId){
+if($paginaUrl === "principal"){
     include_once('./php/principal.php');
 }elseif($paginaUrl === "login"){
     include_once('./php/login.php');
@@ -60,7 +60,7 @@ if($paginaUrl === "principal" && !$noticiaId){
     include_once('./php/cadastrarNoticia.php');
 }elseif($paginaUrl === "contato"){
     include_once('./php/contato.php');
-}elseif($noticiaId){
+}elseif($paginaUrl === "detalhe" && $noticiaId){
     include_once('./php/detalhe.php');
 }else{
     include_once('./php/paginaErro.php');
