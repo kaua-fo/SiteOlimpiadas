@@ -11,10 +11,10 @@
             <link rel="stylesheet" href="./css/contato.css">
         <?php endif ?>
         <?php if($paginaUrl === "registro"): ?>
-            <link rel="stylesheet" href="./css/registro.css">
+            <link rel="stylesheet" href="./css/contato.css">
         <?php endif ?>
         <?php if($paginaUrl === "cadastrarNoticia"): ?>
-            <link rel="stylesheet" href="./css/registro.css">
+            <link rel="stylesheet" href="./css/login.css">
         <?php endif ?>
 <title>InfOlympic</title>
 </head>

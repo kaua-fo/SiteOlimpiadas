@@ -30,6 +30,16 @@ h6 {
   text-align: center; 
 }
 
+textarea{
+  background-color: #b3c4ff;
+  color: white;
+  padding: 16px 165px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+}
+
 input[type=text] {
   background-color: #b3c4ff;
   color: white;
@@ -44,16 +54,6 @@ input[type=email] {
   background-color: #b3c4ff;
   color: white;
   padding: 16px 160px;
-  margin: 8px 0;
-  display: inline-block;
-  border: none;
-  border-radius: 8px;
-}
-
-textarea{
-  background-color: #b3c4ff;
-  color: white;
-  padding: 16px 165px;
   margin: 8px 0;
   display: inline-block;
   border: none;

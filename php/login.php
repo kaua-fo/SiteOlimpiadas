@@ -1,11 +1,11 @@
     <div class="background-form">
         <form>
             <h1>Faça o seu Login:</h1>
-                <label for="email"></label>
-                <input type="email" placeholder="Email" id="email" name="email" required=>
+                <label for="login"></label>
+                <input type="email" placeholder="Login" id="email" name="login" required=>
                 <br>
-                <label for="tel"></label>
-                <input type="text" id="phone" placeholder="Telefone" name="telefone" required>
+                <label for="senha"></label>
+                <input type="password" placeholder="Digite sua senha" name="senha" required>
                 <br>
                 <input type="submit" value="Concluir">
         </form>

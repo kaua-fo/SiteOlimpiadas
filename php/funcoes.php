@@ -194,9 +194,9 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     return ($result)?true:false;
 }
 
-function cadastrarNoticia($titulo,$descricao,$img,$href)
+function cadastrarNoticia($titulo,$descricao,$img)
 {
-    if (!$titulo || !$descricao || !$img || !$href){return;}
+    if (!$titulo || !$descricao || !$img){return;}
     $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`href`)
     VALUES(:titulo,:descricao,:img,:href)";
     $pdo = Database::conexao();
@@ -204,21 +204,18 @@ function cadastrarNoticia($titulo,$descricao,$img,$href)
     $stmt->bindParam(':titulo', $titulo);
     $stmt->bindParam(':descricao', $descricao);
     $stmt->bindParam(':img', $img);
-    $stmt->bindParam(':href', $href);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
 
 function buscarNoticia($id)
 {
-    if (!$id){return;}
-    $sql = "SELECT titulo, img, descricao FROM noticia WHERE id = `id` 
-    VALUES(:id)";
     $pdo = Database::conexao();
+    $sql = "SELECT * FROM noticia WHERE id = $id";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $id);
-    $result = $stmt->execute();
-    return ($result)?true:false;
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list[0];
 }
 
 function listarNoticias()

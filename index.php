@@ -35,7 +35,7 @@ $classificacao = tabelaImc($resposta);
 cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 cadastrarRegistro($nome,$email,$telefone,$login,$senha);
 cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
-cadastrarNoticia($titulo,$descricao,$img,$href);
+cadastrarNoticia($titulo,$descricao,$img);
 
 $listaNoticias = listarNoticias();
 
@@ -60,7 +60,7 @@ if($paginaUrl === "principal"){
     include_once('./php/cadastrarNoticia.php');
 }elseif($paginaUrl === "contato"){
     include_once('./php/contato.php');
-}elseif($paginaUrl === "detalhe" && $noticiaId){
+}elseif($paginaUrl === "detalhe"){
     include_once('./php/detalhe.php');
 }else{
     include_once('./php/paginaErro.php');

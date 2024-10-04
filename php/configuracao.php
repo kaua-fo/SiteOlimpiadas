@@ -3,7 +3,7 @@
 // $_SERVER["SERVER_NAME"]
 switch ('localhost') {
     case 'localhost':
-        $enviroment['local'] = "https://localhost/";
+        $enviroment['local'] = "http://localhost/";
         break;
     case 'homol':
         $enviroment['homol'] = "";
