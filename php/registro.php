@@ -9,7 +9,7 @@
             <br>
             <input name="login" type="text" placeholder="Login" id="email" required>
             <br>
-            <input name="senha" type="password" placeholder="Digite uma senha válida..." id="email" required>
+            <input name="senha" type="password" placeholder="Digite uma senha válida..."required>
             <br>
             <input type="submit" value="Concluir">
     </form>

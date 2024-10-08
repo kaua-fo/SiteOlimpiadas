@@ -197,8 +197,8 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
 function cadastrarNoticia($titulo,$descricao,$img)
 {
     if (!$titulo || !$descricao || !$img){return;}
-    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`href`)
-    VALUES(:titulo,:descricao,:img,:href)";
+    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`)
+    VALUES(:titulo,:descricao,:img)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':titulo', $titulo);
