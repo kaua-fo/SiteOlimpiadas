@@ -32,12 +32,8 @@ include_once('./configuracao/conexao.php');
 include_once('./php/funcoes.php');
 $resposta = calcularImc($peso,$altura);
 $classificacao = tabelaImc($resposta);
-cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
-cadastrarRegistro($nome,$email,$telefone,$login,$senha);
-cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
-cadastrarNoticia($titulo,$descricao,$img);
-
 $listaNoticias = listarNoticias();
+var_dump($listaNoticias);
 
 /**
  * Pegando informação da url
@@ -52,14 +48,18 @@ include_once('./php/header.php');
 
 if($paginaUrl === "principal"){
     include_once('./php/principal.php');
+    cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 }elseif($paginaUrl === "login"){
-    include_once('./php/login.php');
+    include_once('login.php');
 }elseif($paginaUrl === "registro"){
     include_once('./php/registro.php');
+    cadastrarRegistro($nome,$email,$telefone,$login,$senha);
 }elseif($paginaUrl === "cadastrarNoticia"){
     include_once('./php/cadastrarNoticia.php');
+    cadastrarNoticia($titulo,$descricao,$img);
 }elseif($paginaUrl === "contato"){
     include_once('./php/contato.php');
+    cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "detalhe"){
     include_once('./php/detalhe.php');
 }else{
