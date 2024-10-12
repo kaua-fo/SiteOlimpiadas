@@ -33,7 +33,7 @@ include_once('./php/funcoes.php');
 $resposta = calcularImc($peso,$altura);
 $classificacao = tabelaImc($resposta);
 $listaNoticias = listarNoticias();
-var_dump($listaNoticias);
+
 
 /**
  * Pegando informação da url
@@ -52,8 +52,18 @@ if($paginaUrl === "principal"){
 }elseif($paginaUrl === "login"){
     include_once('login.php');
 }elseif($paginaUrl === "registro"){
+    $mensagemErro = false;
+    $permissaoRegistro = '';
+    if($login){
+        $permissaoRegistro = loginUnico($login);
+    };
+    if($permissaoRegistro === false){
+        $mensagemErro = true;
+    };
     include_once('./php/registro.php');
-    cadastrarRegistro($nome,$email,$telefone,$login,$senha);
+    if(!empty($permissaoRegistro) && $permissaoRegistro === true){
+        cadastrarRegistro($nome,$email,$telefone,$login,$senha);
+    };
 }elseif($paginaUrl === "cadastrarNoticia"){
     include_once('./php/cadastrarNoticia.php');
     cadastrarNoticia($titulo,$descricao,$img);

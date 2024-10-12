@@ -175,6 +175,20 @@ function buscarNoticia($id)
     return $list[0];
 }
 
+function loginUnico($login)
+{
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM registro WHERE login = '$login'";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if($list){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 function confirmarLogin($login)
 {
     if (!$login){return;}

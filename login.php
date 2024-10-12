@@ -1,6 +1,6 @@
 <?php //var_dump($confirmacaoLogin)?>
     <div class="background-form">
-        <form method="POST" action="sessao.php">
+        <form method="POST" action="#">
             <h1>Faça o seu Login:</h1>
                 <label for="login"></label>
                 <input type="text" placeholder="Login" name="login" required>

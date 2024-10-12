@@ -8,6 +8,9 @@
             <input name="telefone" type="text" id="phone" placeholder="Telefone"  required>
             <br>
             <input name="login" type="text" placeholder="Login" id="email" required>
+            <?php if($mensagemErro){
+                echo "<h3>Já existe um usuário com o login '$login' cadastrado, por favor, tente outro.</h3>";
+            }; ?>
             <br>
             <input name="senha" type="password" placeholder="Digite uma senha válida..."required>
             <br>
