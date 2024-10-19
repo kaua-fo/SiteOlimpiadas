@@ -9,10 +9,10 @@
             <br>
             <input name="login" type="text" placeholder="Login" id="email" required>
             <?php if($mensagemErro){
-                echo "<h3>Já existe um usuário com o login '$login' cadastrado, por favor, tente outro.</h3>";
+                echo "<h4>Já existe um usuário com o login '$login' cadastrado, por favor, tente outro.</h4>";
             }; ?>
             <br>
-            <input name="senha" type="password" placeholder="Digite uma senha válida..."required>
+            <input name="senha" type="password" placeholder="Digite uma senha válida..." id="email">
             <br>
             <input type="submit" value="Concluir">
     </form>

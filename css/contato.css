@@ -40,7 +40,18 @@ textarea{
   border-radius: 8px;
 }
 
+
 input[type=text] {
+  background-color: #b3c4ff;
+  color: white;
+  padding: 16px 160px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+}
+
+input[type=password] {
   background-color: #b3c4ff;
   color: white;
   padding: 16px 160px;

@@ -1,4 +1,8 @@
 <?php
+include_once('./php/configuracao.php');
+include_once('./configuracao/conexao.php');
+include_once('./php/funcoes.php');
+
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nome'])) ? $_POST['nome'] : null;
 
 $sobrenome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['sobrenome'])) ? $_POST['sobrenome'] : null;
@@ -9,7 +13,7 @@ $telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone']))
 
 $login = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login'])) ? $_POST['login'] : null;
 
-$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['senha'])) ? $_POST['senha'] : null;
+$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
 
 $mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem'])) ? $_POST['mensagem'] : null;
 
@@ -27,13 +31,9 @@ $href = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['href'])) ? $_POS
 
 $resposta = 0;
 
-include_once('./php/configuracao.php');
-include_once('./configuracao/conexao.php');
-include_once('./php/funcoes.php');
 $resposta = calcularImc($peso,$altura);
 $classificacao = tabelaImc($resposta);
 $listaNoticias = listarNoticias();
-
 
 /**
  * Pegando informação da url
@@ -50,7 +50,17 @@ if($paginaUrl === "principal"){
     include_once('./php/principal.php');
     cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 }elseif($paginaUrl === "login"){
-    include_once('login.php');
+    $mensagemErro = false;
+    $mensagemAcesso = false;
+    $infoUser = verificarLogin($login);
+    if($infoUser && validacaoSenha($infoUser['senha'],$senha)){
+        registrarAcessoValido($infoUser);
+        $mensagemAcesso = true;
+    }
+    if($login && !$infoUser){
+        $mensagemErro = true;
+    };
+    include_once('./php/login.php');
 }elseif($paginaUrl === "registro"){
     $mensagemErro = false;
     $permissaoRegistro = '';
@@ -65,13 +75,17 @@ if($paginaUrl === "principal"){
         cadastrarRegistro($nome,$email,$telefone,$login,$senha);
     };
 }elseif($paginaUrl === "cadastrarNoticia"){
+    protegerTela();
     include_once('./php/cadastrarNoticia.php');
     cadastrarNoticia($titulo,$descricao,$img);
 }elseif($paginaUrl === "contato"){
     include_once('./php/contato.php');
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "detalhe"){
+    protegerTela();
     include_once('./php/detalhe.php');
+}elseif($paginaUrl === "sair"){
+    limparSessao();
 }else{
     include_once('./php/paginaErro.php');
 }

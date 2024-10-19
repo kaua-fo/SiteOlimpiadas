@@ -108,11 +108,9 @@ function cadastrarImc($nome,$email,$peso,$altura,$imc,$classificacao)
     return ($result)?true:false;
 }
 
-
 function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
 {
     if (!$nome || !$email || !$telefone|| !$login|| !$senha){return;}
-    $senha = criptografia($senha);
     $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`,`login`,`senha`)
     VALUES(:nome,:email,:telefone,:login,:senha)";
     $pdo = Database::conexao();
@@ -125,6 +123,7 @@ function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
     $result = $stmt->execute();
     return ($result)?true:false;
 }
+
 function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
 {
     if (!$nome || !$sobrenome || !$email || !$telefone || !$mensagem){return;}
@@ -189,15 +188,38 @@ function loginUnico($login)
     }
 }
 
-function confirmarLogin($login)
+function verificarLogin($login)
 {
     if (!$login){return;}
     $pdo = Database::conexao();
-    $sql = "SELECT * FROM registro WHERE `login` = '$login'";
+    $sql = "SELECT `id`,`nome`,`login`,`senha` FROM registro WHERE `login` = '$login'";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return ($list)?$list[0]:false;
+}
+
+function validacaoSenha($senhaDb,$senhaUser){
+    if(!$senhaDb || !$senhaUser){return false;};
+    if($senhaDb == $senhaUser){return true;};
+    return false;
+}
+
+function protegerTela(){
+    if(!$_SESSION || !$_SESSION["usuario"]["status"] === 'logado'){
+        header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
+    };
+}
+
+function registrarAcessoValido($infoUser){
+    $_SESSION["usuario"]["nome"] = $infoUser['nome'];
+    $_SESSION["usuario"]["id"] = $infoUser['id'];
+    $_SESSION["usuario"]["status"] = 'logado';
+}
+
+function limparSessao(){
+    unset($_SESSION["usuario"]);
+    header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
 }
 
 /**
@@ -234,4 +256,3 @@ function textoMaiusculo($texto){
         return strtoupper($texto);
     }
 }
-

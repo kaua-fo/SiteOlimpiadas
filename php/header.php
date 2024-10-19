@@ -7,10 +7,7 @@
         <?php if($paginaUrl === "login"): ?>
             <link rel="stylesheet" href="./css/login.css">
         <?php endif ?>
-        <?php if($paginaUrl === "contato"): ?>
-            <link rel="stylesheet" href="./css/contato.css">
-        <?php endif ?>
-        <?php if($paginaUrl === "registro"): ?>
+        <?php if($paginaUrl === "contato" || $paginaUrl === "registro"): ?>
             <link rel="stylesheet" href="./css/contato.css">
         <?php endif ?>
         <?php if($paginaUrl === "cadastrarNoticia"): ?>
@@ -23,6 +20,7 @@
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'cadastrarNoticia'?>">Cadastrar notícias</a></button></nav>
         <nav><button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'login'?>">Login</a></button>
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'registro'?>">Registro</a></button>
-        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'contato'?>">Contato</a></button></nav>
+        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'contato'?>">Contato</a></button>
+        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'sair'?>">Sair</a></button></nav>
 </header>
 <body>
