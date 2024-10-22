@@ -108,11 +108,11 @@ function cadastrarImc($nome,$email,$peso,$altura,$imc,$classificacao)
     return ($result)?true:false;
 }
 
-function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
+function cadastrarRegistro($nome,$email,$telefone,$login,$senha,$categoria)
 {
-    if (!$nome || !$email || !$telefone|| !$login|| !$senha){return;}
-    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`,`login`,`senha`)
-    VALUES(:nome,:email,:telefone,:login,:senha)";
+    if (!$nome || !$email || !$telefone|| !$login|| !$senha || !$categoria){return;}
+    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`,`login`,`senha`,`categoria`)
+    VALUES(:nome,:email,:telefone,:login,:senha,:categoria)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':nome', $nome);
@@ -120,6 +120,7 @@ function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
     $stmt->bindParam(':telefone', $telefone);
     $stmt->bindParam(':login', $login);
     $stmt->bindParam(':senha',$senha);
+    $stmt->bindParam(':categoria',$categoria);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
@@ -192,7 +193,7 @@ function verificarLogin($login)
 {
     if (!$login){return;}
     $pdo = Database::conexao();
-    $sql = "SELECT `id`,`nome`,`login`,`senha` FROM registro WHERE `login` = '$login'";
+    $sql = "SELECT `id`,`nome`,`login`,`senha`,`categoria` FROM registro WHERE `login` = '$login'";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -211,9 +212,22 @@ function protegerTela(){
     };
 }
 
+function protegerTelaAdmin(){
+    if(!$_SESSION){
+        header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
+    };
+    if($_SESSION["usuario"]["status"] !== 'logado'){
+        header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
+    };
+    if($_SESSION["usuario"]["categoria"] !== 'admin'){
+        header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
+    }
+}
+
 function registrarAcessoValido($infoUser){
     $_SESSION["usuario"]["nome"] = $infoUser['nome'];
     $_SESSION["usuario"]["id"] = $infoUser['id'];
+    $_SESSION["usuario"]["categoria"] = $infoUser['categoria'];
     $_SESSION["usuario"]["status"] = 'logado';
 }
 

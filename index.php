@@ -29,6 +29,8 @@ $img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST[
 
 $href = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['href'])) ? $_POST['href'] : null;
 
+$categoria = 'comum';
+
 $resposta = 0;
 
 $resposta = calcularImc($peso,$altura);
@@ -72,10 +74,10 @@ if($paginaUrl === "principal"){
     };
     include_once('./php/registro.php');
     if(!empty($permissaoRegistro) && $permissaoRegistro === true){
-        cadastrarRegistro($nome,$email,$telefone,$login,$senha);
+        cadastrarRegistro($nome,$email,$telefone,$login,$senha,$categoria);
     };
 }elseif($paginaUrl === "cadastrarNoticia"){
-    protegerTela();
+    protegerTelaAdmin();
     include_once('./php/cadastrarNoticia.php');
     cadastrarNoticia($titulo,$descricao,$img);
 }elseif($paginaUrl === "contato"){
