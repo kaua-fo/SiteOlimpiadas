@@ -165,6 +165,17 @@ function listarNoticias()
     return $list;
 }
 
+function noticiasRelacionadas($categoria,$titulo)
+{
+    if (!$categoria){return;}
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM `noticia` WHERE titulo != `$titulo` AND categoria LIKE '%$categoria%'";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+
 function buscarNoticia($id)
 {
     $pdo = Database::conexao();
