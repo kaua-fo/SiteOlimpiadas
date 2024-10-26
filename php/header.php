@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="InfOlympic" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-        <?php if($paginaUrl === "login"): ?>
-            <link rel="stylesheet" href="./css/login.css">
-        <?php endif ?>
-        <?php if($paginaUrl === "contato" || $paginaUrl === "registro"): ?>
-            <link rel="stylesheet" href="./css/contato.css">
-        <?php endif ?>
-        <?php if($paginaUrl === "cadastrarNoticia"): ?>
-            <link rel="stylesheet" href="./css/login.css">
-        <?php endif ?>
+    <?php if($paginaUrl === "detalhe"): ?>
+            <link rel="stylesheet" href="./css/detalhe.css">
+    <?php endif ?>
+    <?php if($paginaUrl === "login"): ?>
+        <link rel="stylesheet" href="./css/login.css">
+    <?php endif ?>
+    <?php if($paginaUrl === "contato" || $paginaUrl === "registro"): ?>
+        <link rel="stylesheet" href="./css/contato.css">
+    <?php endif ?>
+    <?php if($paginaUrl === "cadastrarNoticia"): ?>
+        <link rel="stylesheet" href="./css/login.css">
+    <?php endif ?>
 <title>InfOlympic</title>
 </head>
 <header>

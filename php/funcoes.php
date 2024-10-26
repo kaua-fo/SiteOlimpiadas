@@ -74,7 +74,9 @@ function reduzirStr($str,$quantidade){
     $tamanho = strlen($str);
     if($str && $tamanho >= $quantidade){
         return substr($str,0,$quantidade)." [...]";
-    }
+    }else{
+        return $str." [...]";
+    };
 }
 
 function criptografia($senha){
@@ -169,7 +171,8 @@ function noticiasRelacionadas($categoria,$titulo)
 {
     if (!$categoria){return;}
     $pdo = Database::conexao();
-    $sql = "SELECT * FROM `noticia` WHERE titulo != `$titulo` AND categoria LIKE '%$categoria%'";
+    $sql = "SELECT * FROM `noticia` WHERE `titulo` != '$titulo' AND categoria LIKE '$categoria'";
+    // var_dump($sql);die;
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
