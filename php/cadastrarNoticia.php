@@ -12,6 +12,8 @@
                 <br>
             <label for="imagem"></label>
             <input type="text" id="email" placeholder="Imagem" name="img" required>
+            <label for="categoria"></label>
+            <input type="text" id="email" placeholder="Categoria" name="categoria" required>
             <br>
             <input type="submit" value="Concluir">
     </form>

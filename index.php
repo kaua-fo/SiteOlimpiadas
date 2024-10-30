@@ -13,7 +13,7 @@ $telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone']))
 
 $login = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login'])) ? $_POST['login'] : null;
 
-$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
+$senha = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['senha'])) ? criptografia($_POST['senha']) : null;
 
 $mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem'])) ? $_POST['mensagem'] : null;
 
@@ -29,7 +29,9 @@ $img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST[
 
 $href = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['href'])) ? $_POST['href'] : null;
 
-$categoria = 'comum';
+$categoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? $_POST['categoria'] : null;
+
+$categoriaUser = 'comum';
 
 $resposta = 0;
 
@@ -74,12 +76,12 @@ if($paginaUrl === "principal"){
     };
     include_once('./php/registro.php');
     if(!empty($permissaoRegistro) && $permissaoRegistro === true){
-        cadastrarRegistro($nome,$email,$telefone,$login,$senha,$categoria);
+        cadastrarRegistro($nome,$email,$telefone,$login,$senha,$categoriaUser);
     };
 }elseif($paginaUrl === "cadastrarNoticia"){
     protegerTelaAdmin();
     include_once('./php/cadastrarNoticia.php');
-    cadastrarNoticia($titulo,$descricao,$img);
+    cadastrarNoticia($titulo,$descricao,$img,$categoria);
 }elseif($paginaUrl === "contato"){
     include_once('./php/contato.php');
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);

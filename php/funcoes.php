@@ -143,16 +143,17 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     return ($result)?true:false;
 }
 
-function cadastrarNoticia($titulo,$descricao,$img)
+function cadastrarNoticia($titulo,$descricao,$img,$categoria)
 {
-    if (!$titulo || !$descricao || !$img){return;}
-    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`)
-    VALUES(:titulo,:descricao,:img)";
+    if (!$titulo || !$descricao || !$img || !$categoria){return;}
+    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`categoria`)
+    VALUES(:titulo,:descricao,:img,:categoria)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':titulo', $titulo);
     $stmt->bindParam(':descricao', $descricao);
     $stmt->bindParam(':img', $img);
+    $stmt->bindParam(':categoria', $categoria);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
@@ -171,8 +172,7 @@ function noticiasRelacionadas($categoria,$titulo)
 {
     if (!$categoria){return;}
     $pdo = Database::conexao();
-    $sql = "SELECT * FROM `noticia` WHERE `titulo` != '$titulo' AND categoria LIKE '$categoria'";
-    // var_dump($sql);die;
+    $sql = "SELECT * FROM `noticia` WHERE `titulo` != '$titulo' AND categoria LIKE '$categoria' LIMIT 5";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);

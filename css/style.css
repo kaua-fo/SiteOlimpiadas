@@ -51,10 +51,13 @@
 .mainCategoryCardTitle {
   font-family: Arial, Helvetica, sans-serif;
   padding: 6px;
+  font-size: 16px;
 }
 
 .mainCategoryCardDescription {
   padding: 6px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
