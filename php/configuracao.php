@@ -2,6 +2,7 @@
 
 session_start();
 
+timeZone();
 // $_SERVER["SERVER_NAME"]
 switch ('localhost') {
     case 'localhost':

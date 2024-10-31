@@ -20,10 +20,10 @@
 </head>
 <header>
         <a href="<?= constant('URL_LOCAL_SITE_PAGINA').'principal'?>""><h6>InfOlympic</h6></a>
-        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'cadastrarNoticia'?>">Cadastrar notícias</a></button></nav>
         <nav><button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'login'?>">Login</a></button>
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'registro'?>">Registro</a></button>
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'contato'?>">Contato</a></button>
+        <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'cadastrarNoticia'?>">Cadastrar notícias</a></button>
         <button class="botao" type="button"><a href="<?= constant('URL_LOCAL_SITE_PAGINA').'sair'?>">Sair</a></button></nav>
 </header>
 <body>

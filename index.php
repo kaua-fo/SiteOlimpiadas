@@ -1,7 +1,7 @@
 <?php
+include_once('./php/funcoes.php');
 include_once('./php/configuracao.php');
 include_once('./configuracao/conexao.php');
-include_once('./php/funcoes.php');
 
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nome'])) ? $_POST['nome'] : null;
 
@@ -38,6 +38,8 @@ $resposta = 0;
 $resposta = calcularImc($peso,$altura);
 $classificacao = tabelaImc($resposta);
 $listaNoticias = listarNoticias();
+$data = dataAtual();
+$hora = horaAtual();
 
 /**
  * Pegando informação da url
