@@ -168,11 +168,11 @@ function listarNoticias()
     return $list;
 }
 
-function noticiasRelacionadas($categoria,$titulo)
+function noticiasRelacionadas($categoria,$id)
 {
     if (!$categoria){return;}
     $pdo = Database::conexao();
-    $sql = "SELECT * FROM `noticia` WHERE `titulo` != '$titulo' AND categoria LIKE '$categoria' LIMIT 5";
+    $sql = "SELECT * FROM `noticia` WHERE `id` != '$id' AND categoria LIKE '$categoria' LIMIT 5";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);

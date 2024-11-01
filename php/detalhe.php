@@ -16,7 +16,7 @@ $noticia = buscarNoticia($noticiaId);
 </div>
 <br><h4 class="infoRelacionadas"> Notícias relacionadas: </h4><br>
 <?php
-$noticiaRelacionada = noticiasRelacionadas($noticia["categoria"],$noticia["titulo"]);
+$noticiaRelacionada = noticiasRelacionadas($noticia["categoria"],$noticia["id"]);
 ?>
 <div class="noticiasRelacionadas">
     <span class="noticiacard">

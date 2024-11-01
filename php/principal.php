@@ -16,14 +16,14 @@
             <div class="sidebarContent">
                 <div class="IMC">
                     <form method="POST" action="#">
-                        <p>Índice de massa corporal</p>
-                        <label for="itext" style="margin-left: 35%">Nome:</label><br>
+                        <p>Índice de massa corporal (IMC)</p>
+                        <label for="itext" style="margin-left: 30%">Nome:</label><br>
                         <input name="nome" placeholder="Digite seu nome..." id="itext" type="text"/><br>
-                        <label for="itext" style="margin-left: 35%">Email:</label><br>
+                        <label for="itext" style="margin-left: 30%">Email:</label><br>
                         <input name="email" placeholder="Digite seu emai..." id="itext" type="text"/><br>
-                        <label for="itext" style="margin-left: 35%">Peso(Kg):</label><br>
+                        <label for="itext" style="margin-left: 30%">Peso(Kg):</label><br>
                         <input name="peso" placeholder="Digite seu peso..." id="itext" type="text"/><br>
-                        <label for="itext"style="margin-left: 35%">Altura(M):</label><br>
+                        <label for="itext"style="margin-left: 30%">Altura(M):</label><br>
                         <input name="altura" placeholder="Digite sua altura..." id="itext" type="text"/><br>
                         <input type="submit" class="botton" style="margin-left: 27%" value="Calcular"/><br>
                     </form>
