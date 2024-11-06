@@ -50,10 +50,10 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-include_once('./php/header.php');
+include_once('./view/header-view');
 
 if($paginaUrl === "principal"){
-    include_once('./php/principal.php');
+    include_once('./view/principal-view');
     cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 }elseif($paginaUrl === "login"){
     $mensagemErro = false;
@@ -66,7 +66,7 @@ if($paginaUrl === "principal"){
     if($login && !$infoUser){
         $mensagemErro = true;
     };
-    include_once('./php/login.php');
+    include_once('./view/login-view');
 }elseif($paginaUrl === "registro"){
     $mensagemErro = false;
     $permissaoRegistro = '';
@@ -76,24 +76,24 @@ if($paginaUrl === "principal"){
     if($permissaoRegistro === false){
         $mensagemErro = true;
     };
-    include_once('./php/registro.php');
+    include_once('./view/registro-view');
     if(!empty($permissaoRegistro) && $permissaoRegistro === true){
         cadastrarRegistro($nome,$email,$telefone,$login,$senha,$categoriaUser);
     };
 }elseif($paginaUrl === "cadastrarNoticia"){
     protegerTelaAdmin();
-    include_once('./php/cadastrarNoticia.php');
+    include_once('./view/cadastrarNoticia-view');
     cadastrarNoticia($titulo,$descricao,$img,$categoria);
 }elseif($paginaUrl === "contato"){
-    include_once('./php/contato.php');
+    include_once('./view/contato-view');
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "detalhe"){
     protegerTela();
-    include_once('./php/detalhe.php');
+    include_once('./view/detalhe-view');
 }elseif($paginaUrl === "sair"){
     limparSessao();
 }else{
-    include_once('./php/paginaErro.php');
+    include_once('./view/paginaErro-view');
 }
 
-include_once('./php/footer.php'); 
+include_once('./view/footer-view');

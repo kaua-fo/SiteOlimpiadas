@@ -1,5 +1,5 @@
 <div class="container">
-    <?php include_once('tituloSite.php'); ?>
+    <?php include_once('tituloSite-view'); ?>
     <section class="gridContainer">
         <div class="mainContent">
     <?php foreach ($listaNoticias as $topico) : ?>

@@ -1,4 +1,4 @@
-<?php include_once('tituloSite.php');
+<?php include_once('tituloSite-view');
 
 if($_GET && isset($_GET['noticia'])){
     $noticiaId = $_GET['noticia'];
