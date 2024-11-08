@@ -1,4 +1,5 @@
 <?php
+// link site: http://localhost/infOlympic/?pagina=principal
 include_once('./php/funcoes.php');
 include_once('./php/configuracao.php');
 include_once('./configuracao/conexao.php');
@@ -29,7 +30,7 @@ $img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST[
 
 $href = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['href'])) ? $_POST['href'] : null;
 
-$categoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? $_POST['categoria'] : null;
+$palavraChave = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['palavraChave'])) ? $_POST['palavraChave'] : null;
 
 $categoriaUser = 'comum';
 
@@ -83,7 +84,7 @@ if($paginaUrl === "principal"){
 }elseif($paginaUrl === "cadastrarNoticia"){
     protegerTelaAdmin();
     include_once('./view/cadastrarNoticia-view');
-    cadastrarNoticia($titulo,$descricao,$img,$categoria);
+    cadastrarNoticia($titulo,$descricao,$img,$palavraChave);
 }elseif($paginaUrl === "contato"){
     include_once('./view/contato-view');
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);

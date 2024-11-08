@@ -99,7 +99,7 @@ h2 {
 }
 
 .sidebarContent {
- background-color: #d5d9e7;
+  background: linear-gradient(to top right, #003cff, #00f7ff);
  border: 0px;
  color: black;
  display: flex;
@@ -197,7 +197,7 @@ h6 {
 }
 
 #itext {
-  background-color: #b3c4ff;
+  background-color: #ffffff;
   text-align: center;
   padding: 5%;
   margin-top: 1%;
@@ -230,12 +230,16 @@ h6 {
 
 .botton{
   text-align: center;
-  background-color: #5167b2;
-  color: rgb(255, 255, 255);
+  background-color: #ffffff;
+  color: #5167b2;
   padding: 5%;
   margin-top: 5%;
   border: none;
   border-radius: 8px;
   font-weight: 800;
   cursor: pointer;
+}
+
+#textoImc{
+  color: #ffffff;
 }
