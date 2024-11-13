@@ -34,7 +34,7 @@ $palavraChave = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['palavraC
 
 $nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nomeCategoria'])) ? $_POST ['nomeCategoria'] : null;
 
-$categoriaId = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? buscarIdCategoria($_POST ['categoria']) : null;
+$categoriaId = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? buscarIdCategoria($_POST ['categoria'])['id'] : null;
 
 $categoriaUser = 'comum';
 
@@ -90,8 +90,6 @@ if($paginaUrl === "principal"){
     protegerTelaAdmin();
     $categorias = listarCategorias();
     include_once('./view/cadastrarNoticia-view');
-    var_dump($categoriaId);
-    var_dump($titulo);
     cadastrarNoticia($titulo,$descricao,$img,$categoriaId);
 }elseif($paginaUrl === "cadastrarCategoria"){
     protegerTelaAdmin();

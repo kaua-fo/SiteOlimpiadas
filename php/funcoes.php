@@ -149,9 +149,18 @@ function buscarIdCategoria($categoria){
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $list;
+    return $list[0];
 }
 
+# função que retorna o nome da categoria relacionada ao ID
+function buscarCategoriaPeloId($id){
+    $pdo = Database::conexao();
+    $sql = "SELECT `nome` FROM `categoria` WHERE `id` = '$id' ";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list[0];
+}
 
 function cadastrarNoticia($titulo,$descricao,$img,$categoriaId)
 {
@@ -200,11 +209,11 @@ function listarCategorias()
     return $list;
 }
 
-function noticiasRelacionadas($palavraChave,$id)
+function noticiasRelacionadas($categoriaId,$id)
 {
-    if (!$palavraChave){return;}
+    if (!$categoriaId){return;}
     $pdo = Database::conexao();
-    $sql = "SELECT * FROM `noticia` WHERE `id` != '$id' AND palavraChave LIKE '$palavraChave' LIMIT 5";
+    $sql = "SELECT * FROM `noticia` WHERE `id` != '$id' AND categoriaId LIKE '$categoriaId' LIMIT 5";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
