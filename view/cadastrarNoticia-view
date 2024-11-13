@@ -12,8 +12,13 @@
                 <br>
             <label for="imagem"></label>
             <input type="text" id="email" placeholder="Imagem" name="img">
-            <label for="palavraChave"></label>
-            <input type="text" id="email" placeholder="Palavra-Chave" name="palavraChave">
+            <div class="input-box">
+                <select name="categoria" class="name">
+                    <?php foreach ($categorias as $itemCategoria):?>
+                        <option value="<?=$itemCategoria['nome']?>"><?=$itemCategoria['nome']?></option>
+                    <?php endforeach;?>
+                </select>
+            </div>   
             <br>
             <input type="submit" value="Concluir">
     </form>

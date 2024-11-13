@@ -72,6 +72,16 @@ input[type=password] {
   border-radius: 8px;
 }
 
+.input-box{
+  background-color: #b3c4ff;
+  color: white;
+  padding: 16px 165px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+}
+
 input[type=submit] {
   text-align: center;
   background-color: #5167b2;

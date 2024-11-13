@@ -143,17 +143,39 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     return ($result)?true:false;
 }
 
-function cadastrarNoticia($titulo,$descricao,$img,$palavraChave)
+function buscarIdCategoria($categoria){
+    $pdo = Database::conexao();
+    $sql = "SELECT `id` FROM `categoria` WHERE `nome` = '$categoria' ";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+
+
+function cadastrarNoticia($titulo,$descricao,$img,$categoriaId)
 {
-    if (!$titulo || !$descricao || !$img || !$palavraChave){return;}
-    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`palavraChave`)
-    VALUES(:titulo,:descricao,:img,:palavraChave)";
+    if (!$titulo || !$descricao || !$img || !$categoriaId){return;}
+    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`categoriaId`)
+    VALUES(:titulo,:descricao,:img,:categoriaId)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':titulo', $titulo);
     $stmt->bindParam(':descricao', $descricao);
     $stmt->bindParam(':img', $img);
-    $stmt->bindParam(':palavraChave', $palavraChave);
+    $stmt->bindParam(':categoriaId',$categoriaId);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+}
+
+function cadastrarCategoria($nomeCategoria)
+{
+    if (!$nomeCategoria){return;}
+    $sql = "INSERT INTO `categoria` (`nome`)
+    VALUES(:nome)";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':nome', $nomeCategoria);
     $result = $stmt->execute();
     return ($result)?true:false;
 }
@@ -162,6 +184,16 @@ function listarNoticias()
 {
     $pdo = Database::conexao();
     $sql = "SELECT * FROM noticia";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $list;
+}
+
+function listarCategorias()
+{
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM categoria";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -189,18 +221,24 @@ function buscarNoticia($id)
     return $list[0];
 }
 
-function loginUnico($login)
+function verificarLoginDuplicado($login)
 {
     $pdo = Database::conexao();
     $sql = "SELECT * FROM registro WHERE login = '$login'";
     $stmt = $pdo->prepare($sql);
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if($list){
-        return false;
-    }else{
-        return true;
-    }
+    return($list)?false:true;
+}
+
+function verificarCategoriaDuplicada($nomeCategoria)
+{
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM categoria WHERE `nome` = '$nomeCategoria'";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return($list)?false:true;
 }
 
 function verificarLogin($login)

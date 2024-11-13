@@ -32,6 +32,10 @@ $href = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['href'])) ? $_POS
 
 $palavraChave = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['palavraChave'])) ? $_POST['palavraChave'] : null;
 
+$nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nomeCategoria'])) ? $_POST ['nomeCategoria'] : null;
+
+$categoriaId = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? buscarIdCategoria($_POST ['categoria']) : null;
+
 $categoriaUser = 'comum';
 
 $resposta = 0;
@@ -41,7 +45,12 @@ $classificacao = tabelaImc($resposta);
 $listaNoticias = listarNoticias();
 $data = dataAtual();
 $hora = horaAtual();
-
+if($nomeCategoria){
+    $nomeCategoria = ucfirst(strtolower($nomeCategoria));
+}
+// if($categoria){
+//     $categoriaId = buscarIdCategoria($categoria);
+// };
 /**
  * Pegando informação da url
  */
@@ -70,21 +79,30 @@ if($paginaUrl === "principal"){
     include_once('./view/login-view');
 }elseif($paginaUrl === "registro"){
     $mensagemErro = false;
-    $permissaoRegistro = '';
-    if($login){
-        $permissaoRegistro = loginUnico($login);
-    };
-    if($permissaoRegistro === false){
+    if(!verificarLoginDuplicado($login)){
         $mensagemErro = true;
     };
     include_once('./view/registro-view');
-    if(!empty($permissaoRegistro) && $permissaoRegistro === true){
+    if(verificarLoginDuplicado($login)){
         cadastrarRegistro($nome,$email,$telefone,$login,$senha,$categoriaUser);
     };
 }elseif($paginaUrl === "cadastrarNoticia"){
     protegerTelaAdmin();
+    $categorias = listarCategorias();
     include_once('./view/cadastrarNoticia-view');
-    cadastrarNoticia($titulo,$descricao,$img,$palavraChave);
+    var_dump($categoriaId);
+    var_dump($titulo);
+    cadastrarNoticia($titulo,$descricao,$img,$categoriaId);
+}elseif($paginaUrl === "cadastrarCategoria"){
+    protegerTelaAdmin();
+    $mensagemErro = false;
+    if(!verificarCategoriaDuplicada($nomeCategoria)){
+        $mensagemErro = true;
+    };
+    include_once('./view/cadastrarCategoria-view');
+    if(verificarCategoriaDuplicada($nomeCategoria)){
+        cadastrarCategoria($nomeCategoria);
+    }
 }elseif($paginaUrl === "contato"){
     include_once('./view/contato-view');
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
