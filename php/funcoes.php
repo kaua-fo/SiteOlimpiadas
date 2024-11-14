@@ -143,24 +143,6 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     return ($result)?true:false;
 }
 
-function buscarIdCategoria($categoria){
-    $pdo = Database::conexao();
-    $sql = "SELECT `id` FROM `categoria` WHERE `nome` = '$categoria' ";
-    $stmt = $pdo->prepare($sql);
-    $list = $stmt->execute();
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $list[0];
-}
-
-# função que retorna o nome da categoria relacionada ao ID
-function buscarCategoriaPeloId($id){
-    $pdo = Database::conexao();
-    $sql = "SELECT `nome` FROM `categoria` WHERE `id` = '$id' ";
-    $stmt = $pdo->prepare($sql);
-    $list = $stmt->execute();
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $list[0];
-}
 
 function cadastrarNoticia($titulo,$descricao,$img,$categoriaId)
 {

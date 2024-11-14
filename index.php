@@ -34,7 +34,7 @@ $palavraChave = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['palavraC
 
 $nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nomeCategoria'])) ? $_POST ['nomeCategoria'] : null;
 
-$categoriaId = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? buscarIdCategoria($_POST ['categoria'])['id'] : null;
+$categoriaId = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? $_POST ['categoria'] : null;
 
 $categoriaUser = 'comum';
 
