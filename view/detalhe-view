@@ -1,12 +1,3 @@
-<?php include_once('tituloSite-view');
-
-if($_GET && isset($_GET['noticia'])){
-    $noticiaId = $_GET['noticia'];
-}else{
-    $noticiaId = null;
-}
-$noticia = buscarNoticia($noticiaId);
-?>
 <div class="divExterna">
 <div class="divInterna">
     <img class="imgAtleta" src="<?= constant("URL_LOCAL_SITE").'imagens/'.$noticia["img"] ;?>">
@@ -15,9 +6,6 @@ $noticia = buscarNoticia($noticiaId);
     <p class="info"><?= $noticia['descricao'];?></p>
 </div>
 <br><h4 class="infoRelacionadas"> Notícias relacionadas: </h4><br>
-<?php
-$noticiaRelacionada = noticiasRelacionadas( $noticia["categoriaId"], $noticia["id"]);
-?>
 <div class="noticiasRelacionadas">
     <span class="noticiacard">
     <?php foreach ($noticiaRelacionada as $topico) : ?>

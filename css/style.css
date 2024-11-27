@@ -99,7 +99,7 @@ h2 {
 }
 
 .sidebarContent {
-  background: linear-gradient(to top right, #003cff, #00f7ff);
+ background: linear-gradient(to top, #003cff, #26d4ff);
  border: 0px;
  color: black;
  display: flex;

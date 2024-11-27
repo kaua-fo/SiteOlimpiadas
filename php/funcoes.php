@@ -110,23 +110,6 @@ function cadastrarImc($nome,$email,$peso,$altura,$imc,$classificacao)
     return ($result)?true:false;
 }
 
-function cadastrarRegistro($nome,$email,$telefone,$login,$senha,$categoria)
-{
-    if (!$nome || !$email || !$telefone|| !$login|| !$senha || !$categoria){return;}
-    $sql = "INSERT INTO `registro` (`nome`,`email`,`telefone`,`login`,`senha`,`categoria`)
-    VALUES(:nome,:email,:telefone,:login,:senha,:categoria)";
-    $pdo = Database::conexao();
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':telefone', $telefone);
-    $stmt->bindParam(':login', $login);
-    $stmt->bindParam(':senha',$senha);
-    $stmt->bindParam(':categoria',$categoria);
-    $result = $stmt->execute();
-    return ($result)?true:false;
-}
-
 function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
 {
     if (!$nome || !$sobrenome || !$email || !$telefone || !$mensagem){return;}
@@ -232,16 +215,6 @@ function verificarCategoriaDuplicada($nomeCategoria)
     return($list)?false:true;
 }
 
-function verificarLogin($login)
-{
-    if (!$login){return;}
-    $pdo = Database::conexao();
-    $sql = "SELECT `id`,`nome`,`login`,`senha`,`categoria` FROM registro WHERE `login` = '$login'";
-    $stmt = $pdo->prepare($sql);
-    $list = $stmt->execute();
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return ($list)?$list[0]:false;
-}
 
 function validacaoSenha($senhaDb,$senhaUser){
     if(!$senhaDb || !$senhaUser){return false;};
