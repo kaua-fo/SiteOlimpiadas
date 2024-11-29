@@ -1,5 +1,5 @@
 <div class="background-form">
-    <form method="POST" action="#">
+    <form method="POST" action="#" enctype="multipart/form-data">
         <h1>Cadastrar noticia:</h1>
             <label for="titulo"></label>
             <input type="text" placeholder="Título" id="email" name="titulo">
@@ -11,7 +11,8 @@
                 placeholder="Descrição:"></textarea>
                 <br>
             <label for="imagem"></label>
-            <input type="text" id="email" placeholder="Imagem" name="img">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <br>
             <div class="input-box">
                 <select name="categoria" class="name">
                     <?php foreach ($categorias as $itemCategoria):?>

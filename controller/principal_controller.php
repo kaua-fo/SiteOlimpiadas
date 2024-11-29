@@ -22,6 +22,6 @@ $data = dataAtual();
 $hora = horaAtual();
 
 if($paginaUrl === "principal"){
-    include_once('./view/principal-view');
+    include_once('./view/principal-view.php');
     cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
 };

@@ -15,6 +15,6 @@ $noticia = buscarNoticia($noticiaId);
 $noticiaRelacionada = noticiasRelacionadas( $noticia["categoriaId"], $noticia["id"]);
 
 if($paginaUrl === "detalhe"){
-    protegerTela();
-    include_once('./view/detalhe-view');
+    acesso::protegerTela();
+    include_once('./view/detalhe-view.php');
 };

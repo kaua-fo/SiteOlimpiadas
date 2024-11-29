@@ -8,8 +8,9 @@ class Registro
     private $telefone;
     private $login;
     private $senha;
+    private $categoria;
 
-    //construtor
+    //Construtor
     public function __construct($nome = null, $email = null, $telefone = null, $login = null, $senha = null)
     {
         $this->setNome($nome);
@@ -17,6 +18,7 @@ class Registro
         $this->setTelefone($telefone);
         $this->setLogin($login);
         $this->setSenha($senha);
+        $this->setCategoria($categoria)
     }
 
     public function getNome(){
@@ -34,6 +36,28 @@ class Registro
     public function getSenha(){
         return $this->senha;
     }
+    public function getCategoria(){
+        return $this->categoria;
+    }
+
+    public function setNome($nome){
+        $this->nome = $nome;
+    }
+    public function setEmail($email){
+        $this->email = $email;
+    }
+    public function setTelefone($telefone){
+        $this->telefone = $telefone;
+    }
+    public function setLogin($login){
+        $this->login = $login;
+    }
+    public function setSenha($senha){
+        $this->senha = $senha;
+    }
+    public function setCategoria($categoria){: void
+        $this->categoria = $categoria;
+    }
 
     function cadastrarRegistro()
     {
@@ -50,17 +74,6 @@ class Registro
         $stmt->bindParam(':categoria',$this->categoria);
         $result = $stmt->execute();
         return ($result)?true:false;
-    }
-
-    public static function verificarLogin($login)
-    {
-        if (!$login){return;}
-        $pdo = Database::conexao();
-        $sql = "SELECT `id`,`nome`,`login`,`senha`,`categoria` FROM registro WHERE `login` = '$login'";
-        $stmt = $pdo->prepare($sql);
-        $list = $stmt->execute();
-        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return ($list[0]);
     }
 
 }

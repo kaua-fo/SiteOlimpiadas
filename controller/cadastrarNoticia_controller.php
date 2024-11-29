@@ -10,13 +10,16 @@ $titulo = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['titulo'])) ? $
 
 $descricao = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['descricao'])) ? $_POST['descricao'] : null;
 
-$img = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['img'])) ? $_POST['img'] : null;
+$imagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['fileToUpload'])) ? $_POST['fileToUpload'] : null;
 
 $categoriaId = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria'])) ? $_POST ['categoria'] : null;
 
 if($paginaUrl === "cadastrarNoticia"){
-    protegerTelaAdmin();
+    acesso::protegerTelaAdmin();
     $categorias = listarCategorias();
-    include_once('./view/cadastrarNoticia-view');
-    cadastrarNoticia($titulo,$descricao,$img,$categoriaId);
+    include_once('./view/cadastrarNoticia-view.php');
+    if($_POST){
+        $nomeDaImagem = upload($imagem);
+        cadastrarNoticia($titulo,$descricao,$nomeDaImagem,$categoriaId);
+    };
 };

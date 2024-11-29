@@ -32,5 +32,5 @@ if($paginaUrl === "registro"){
     if($_POST){
       $objRegistro->cadastrarRegistro();
     }
-    include_once('./view/registro-view');
+    include_once('./view/registro-view.php');
 };

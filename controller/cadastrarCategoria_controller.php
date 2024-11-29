@@ -12,12 +12,12 @@ if($nomeCategoria){
 }
 
 if($paginaUrl === "cadastrarCategoria"){
-    protegerTelaAdmin();
+    acesso::protegerTelaAdmin();
     $mensagemErro = false;
     if(!verificarCategoriaDuplicada($nomeCategoria)){
         $mensagemErro = true;
     };
-    include_once('./view/cadastrarCategoria-view');
+    include_once('./view/cadastrarCategoria-view.php');
     if(verificarCategoriaDuplicada($nomeCategoria)){
         cadastrarCategoria($nomeCategoria);
     }

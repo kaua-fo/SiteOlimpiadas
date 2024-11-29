@@ -15,13 +15,13 @@ $senha = ($_SERVER["REQUEST_METHOD"] == "POST"
 if($paginaUrl === "login"){
    $mensagemErro = false;
    $mensagemAcesso = false;
-   $infoUser = verificarLogin($login);
-   if($infoUser && validacaoSenha($infoUser['senha'],$senha)){
-       registrarAcessoValido($infoUser);
+   $infoUser = acesso::verificarLogin($login);
+   if($infoUser && acesso::validacaoSenha($infoUser['senha'],$senha)){
+       acesso::registrarAcessoValido($infoUser);
        $mensagemAcesso = true;
    }
    if($login && !$infoUser){
        $mensagemErro = true;
    };
-   include_once('./view/login-view');
+   include_once('./view/login-view.php');
 };

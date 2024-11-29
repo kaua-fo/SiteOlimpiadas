@@ -17,6 +17,6 @@ $telefone = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['telefone']))
 $mensagem = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['mensagem'])) ? $_POST['mensagem'] : null;
 
 if($paginaUrl === "contato"){
-    include_once('./view/contato-view');
+    include_once('./view/contato-view.php');
     cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 };
