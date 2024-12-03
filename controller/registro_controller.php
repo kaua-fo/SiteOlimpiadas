@@ -1,4 +1,5 @@
 <?php
+include_once('model/registro_model.php');
 
 if($_GET && isset($_GET['pagina'])){
     $paginaUrl = $_GET['pagina'];
@@ -21,16 +22,16 @@ $login = ($_SERVER["REQUEST_METHOD"] == "POST"
 $senha = ($_SERVER["REQUEST_METHOD"] == "POST"
  && !empty($_POST['senha'])) ? criptografia($_POST['senha']) : null;
 
- $categoriaUser = 'comum';
+$categoriaUser = 'comum';
 
 if($paginaUrl === "registro"){
     $mensagemErro = false;
     if(!verificarLoginDuplicado($login)){
         $mensagemErro = true;
     };
-    $objRegistro = new Registro($nome, $email, $telefone, $login, $senha);
+    $objRegistro = new Registro($nome, $email, $telefone, $login, $senha, $categoriaUser);
     if($_POST){
       $objRegistro->cadastrarRegistro();
-    }
+    };
     include_once('./view/registro-view.php');
 };

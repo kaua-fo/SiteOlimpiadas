@@ -11,14 +11,14 @@ class Registro
     private $categoria;
 
     //Construtor
-    public function __construct($nome = null, $email = null, $telefone = null, $login = null, $senha = null)
+    public function __construct($nome = null, $email = null, $telefone = null, $login = null, $senha = null, $categoria = null)
     {
         $this->setNome($nome);
         $this->setEmail($email);
         $this->setTelefone($telefone);
         $this->setLogin($login);
         $this->setSenha($senha);
-        $this->setCategoria($categoria)
+        $this->setCategoria($categoria);
     }
 
     public function getNome(){
@@ -55,7 +55,7 @@ class Registro
     public function setSenha($senha){
         $this->senha = $senha;
     }
-    public function setCategoria($categoria){: void
+    public function setCategoria($categoria){
         $this->categoria = $categoria;
     }
 

@@ -17,7 +17,6 @@ if($paginaUrl === "principal"){
 }elseif($paginaUrl === "login"){
     include_once('controller/login_controller.php');
 }elseif($paginaUrl === "registro"){
-    include_once('model/registro_model.php');
     include_once('controller/registro_controller.php');
 }elseif($paginaUrl === "cadastrarNoticia"){
     include_once('controller/cadastrarNoticia_controller.php');
