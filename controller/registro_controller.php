@@ -26,11 +26,11 @@ $categoriaUser = 'comum';
 if($paginaUrl === "registro"){
     $objRegistro = new Registro($nome, $email, $telefone, $login, $senha, $categoriaUser);
     $mensagemErro = false;
-    if(!$objRegistro->verificarLoginDuplicado($login)){
-        $mensagemErro = true;
-    };
     if($_POST){
-      $objRegistro->cadastrarRegistro();
+        if($objRegistro->verificarLoginDuplicado($login)){
+        $mensagemErro = true;
+        $objRegistro->cadastrarRegistro();
+        };
     };
     include_once('./view/registro-view.php');
 };

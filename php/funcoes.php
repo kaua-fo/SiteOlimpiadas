@@ -56,22 +56,6 @@ function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     return ($result)?true:false;
 }
 
-
-function cadastrarNoticia($titulo,$descricao,$img,$categoriaId)
-{
-    if (!$titulo || !$descricao || !$img || !$categoriaId){return;}
-    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`categoriaId`)
-    VALUES(:titulo,:descricao,:img,:categoriaId)";
-    $pdo = Database::conexao();
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':titulo', $titulo);
-    $stmt->bindParam(':descricao', $descricao);
-    $stmt->bindParam(':img', $img);
-    $stmt->bindParam(':categoriaId',$categoriaId);
-    $result = $stmt->execute();
-    return ($result)?true:false;
-}
-
 function cadastrarCategoria($nomeCategoria)
 {
     if (!$nomeCategoria){return;}

@@ -20,6 +20,6 @@ if($paginaUrl === "cadastrarNoticia"){
     include_once('./view/cadastrarNoticia-view.php');
     if($_POST){
         $nomeDaImagem = upload($imagem);
-        cadastrarNoticia($titulo,$descricao,$nomeDaImagem,$categoriaId);
+        $objNoticia->cadastrarNoticia();
     };
 };
