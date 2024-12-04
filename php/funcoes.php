@@ -10,45 +10,6 @@ function timeZone(){
 }
 
 /**
- * calcularImc
- * Calcula o Imc e retorna 
- * o resultado
- */
-function calcularImc($peso,$altura){
-    $resposta = 0;
-    if($peso && $altura){
-        $resposta = $peso / ($altura * $altura);
-    }
-    return round($resposta, 2);
-}
-
-/**
- * tabelaImc
- * Retorna o estado da pessoa
- * baseado no IMC dela
- */
-function tabelaImc($imc){
-    if($imc <= 16){
-        $estado = 'Magreza grave';
-    }elseif($imc >16 && $imc <17){
-        $estado = 'Magreza moderada';
-    }elseif($imc >=17 && $imc <=18.50){
-        $estado = 'Magreza leve';
-    }elseif($imc >=18.51 && $imc <25){
-        $estado = 'Peso ideal';
-    }elseif($imc >=25 && $imc <30){
-        $estado = 'Sobrepeso';
-    }elseif($imc >=30 && $imc <35){
-        $estado = 'Obesidade grau I';
-    }elseif($imc >=35 && $imc <40){
-        $estado = 'Obesidade grau II ou severa';
-    }elseif($imc >=40){
-        $estado = 'Obesidade grau III ou mórbida';
-    }
-    return $estado;
-}
-
-/**
  * DataAtual
  * Retorna a data atualizada
  */
@@ -77,37 +38,6 @@ function reduzirStr($str,$quantidade){
     }else{
         return $str." [...]";
     };
-}
-
-function criptografia($senha){
-    if(!$senha)return False;
-    return sha1($senha);
-}
-
-function imcBuscarPorId($id)
-{
-    $pdo = Database::conexao();
-    $sql = "SELECT * FROM imc WHERE id = $id";
-    $stmt = $pdo->prepare($sql);
-    $list = $stmt->execute();
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $list;
-}
-function cadastrarImc($nome,$email,$peso,$altura,$imc,$classificacao)
-{
-    if (!$nome || !$email || !$peso || !$altura || !$imc || !$classificacao){return;}
-    $sql = "INSERT INTO `imc` (`nome`,`email`,`peso`,`altura`,`imc`,`classificacao`)
-    VALUES(:nome,:email,:peso,:altura,:imc,:classificacao)";
-    $pdo = Database::conexao();
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':nome', $nome);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':peso', $peso);
-    $stmt->bindParam(':altura', $altura);
-    $stmt->bindParam(':imc', $imc);
-    $stmt->bindParam(':classificacao', $classificacao);
-    $result = $stmt->execute();
-    return ($result)?true:false;
 }
 
 function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
@@ -193,16 +123,6 @@ function buscarNoticia($id)
     $list = $stmt->execute();
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $list[0];
-}
-
-function verificarLoginDuplicado($login)
-{
-    $pdo = Database::conexao();
-    $sql = "SELECT * FROM registro WHERE login = '$login'";
-    $stmt = $pdo->prepare($sql);
-    $list = $stmt->execute();
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return($list)?false:true;
 }
 
 function verificarCategoriaDuplicada($nomeCategoria)

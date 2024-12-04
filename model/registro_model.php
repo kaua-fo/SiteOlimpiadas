@@ -76,4 +76,13 @@ class Registro
         return ($result)?true:false;
     }
 
+    public function verificarLoginDuplicado($login)
+    {
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM registro WHERE login = '$login'";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return($list)?false:true;
+    }
 }

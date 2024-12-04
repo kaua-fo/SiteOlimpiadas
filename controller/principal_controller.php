@@ -14,14 +14,17 @@ $peso = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['peso'])) ? $_POS
 
 $altura = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['altura'])) ? $_POST['altura'] : null;
 
-$resposta = 0;
-$resposta = calcularImc($peso,$altura);
-$classificacao = tabelaImc($resposta);
+$imc = imc::calcularImc($peso,$altura);
+$classificacao = imc::tabelaImc($imc);
 $listaNoticias = listarNoticias();
 $data = dataAtual();
 $hora = horaAtual();
 
-if($paginaUrl === "principal"){
+if($paginaUrl === "principal")
+{
+    $objImc = new Imc($nome,$email,$peso,$altura);
     include_once('./view/principal-view.php');
-    cadastrarImc($nome,$email,$peso,$altura,$resposta,$classificacao);
+    if($_POST){
+        $objImc->cadastrarImc($imc, $classificacao);
+    }
 };

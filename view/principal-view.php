@@ -28,7 +28,7 @@
                         <input type="submit" class="botton" style="margin-left: 27%" value="Calcular"/><br>
                     </form>
                     <h4 id="textoImc">
-                    resposta: <?= $resposta ?><br>
+                    resposta: <?= $imc ?><br>
                     estado: <?= $classificacao ?>
                     </h4>
                 </div>
