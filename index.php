@@ -21,6 +21,7 @@ if($paginaUrl === "principal"){
     include_once('model/registro_model.php');
     include_once('controller/registro_controller.php');
 }elseif($paginaUrl === "cadastrarNoticia"){
+    include_once('model/noticia_model.php');
     include_once('controller/cadastrarNoticia_controller.php');
 }elseif($paginaUrl === "cadastrarCategoria"){
     include_once('controller/cadastrarCategoria_controller.php');

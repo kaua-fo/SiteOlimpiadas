@@ -16,6 +16,7 @@ $categoriaId = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['categoria
 
 if($paginaUrl === "cadastrarNoticia"){
     acesso::protegerTelaAdmin();
+    $objNoticia = new Noticia($titulo, $descricao, $imagem, $categoriaId);
     $categorias = listarCategorias();
     include_once('./view/cadastrarNoticia-view.php');
     if($_POST){
