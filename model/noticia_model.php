@@ -45,13 +45,13 @@ class Noticia
     function cadastrarNoticia()
     {
     if (!$this->titulo || !$this->descricao || !$this->imagem || !$this->categoriaId){return;}
-    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`img`,`categoriaId`)
-    VALUES(:titulo,:descricao,:img,:categoriaId)";
+    $sql = "INSERT INTO `noticia` (`titulo`,`descricao`,`imagem`,`categoriaId`)
+    VALUES(:titulo,:descricao,:imagem,:categoriaId)";
     $pdo = Database::conexao();
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':titulo', $this->titulo);
     $stmt->bindParam(':descricao', $this->descricao);
-    $stmt->bindParam(':img', $this->imagem);
+    $stmt->bindParam(':imagem', $this->imagem);
     $stmt->bindParam(':categoriaId',$this->categoriaId);
     $result = $stmt->execute();
     return ($result)?true:false;

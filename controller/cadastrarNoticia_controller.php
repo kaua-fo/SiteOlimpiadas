@@ -20,7 +20,8 @@ if($paginaUrl === "cadastrarNoticia"){
     $categorias = listarCategorias();
     include_once('./view/cadastrarNoticia-view.php');
     if($_POST){
-        $nomeDaImagem = upload($imagem);
+        var_dump($titulo, $descricao, $imagem, $categoriaId);
+        $nomeDaImagem = noticia::upload($imagem);
         $objNoticia->cadastrarNoticia();
     };
 };
