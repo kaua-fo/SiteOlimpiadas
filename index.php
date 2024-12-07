@@ -1,6 +1,5 @@
 <?php
-
-include_once('php/funcoes.php');
+include_once('model/time_model.php');
 include_once('php/configuracao.php');
 include_once('configuracao/conexao.php');
 include_once('model/acesso_model.php');
@@ -14,6 +13,7 @@ if($_GET && isset($_GET['pagina'])){
 include_once('./view/header-view.php');
 if($paginaUrl === "principal"){
     include_once('model/imc_model.php');
+    include_once('model/noticia_model.php');
     include_once('controller/principal_controller.php');
 }elseif($paginaUrl === "login"){
     include_once('controller/login_controller.php');
@@ -24,10 +24,13 @@ if($paginaUrl === "principal"){
     include_once('model/noticia_model.php');
     include_once('controller/cadastrarNoticia_controller.php');
 }elseif($paginaUrl === "cadastrarCategoria"){
+    include_once('model/noticia_model.php');
     include_once('controller/cadastrarCategoria_controller.php');
 }elseif($paginaUrl === "contato"){
+    include_once('model/contato_model.php');
     include_once('controller/contato_controller.php');
 }elseif($paginaUrl === "detalhe"){
+    include_once('model/noticia_model.php');
     include_once('controller/detalhe_controller.php');
 }elseif($paginaUrl === "sair"){
     acesso::limparSessao();

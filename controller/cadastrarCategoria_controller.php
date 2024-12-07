@@ -6,7 +6,9 @@ if($_GET && isset($_GET['pagina'])){
     $paginaUrl = null;
 }
 
-$nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['nomeCategoria'])) ? $_POST ['nomeCategoria'] : null;
+$nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST"
+ && !empty($_POST['nomeCategoria'])) ? $_POST ['nomeCategoria'] : null;
+ 
 if($nomeCategoria){
     $nomeCategoria = ucfirst(strtolower($nomeCategoria));
 }
@@ -14,11 +16,11 @@ if($nomeCategoria){
 if($paginaUrl === "cadastrarCategoria"){
     acesso::protegerTelaAdmin();
     $mensagemErro = false;
-    if(!verificarCategoriaDuplicada($nomeCategoria)){
+    if(!noticia::verificarCategoriaDuplicada($nomeCategoria)){
         $mensagemErro = true;
     };
     include_once('./view/cadastrarCategoria-view.php');
-    if(verificarCategoriaDuplicada($nomeCategoria)){
-        cadastrarCategoria($nomeCategoria);
+    if(noticia::verificarCategoriaDuplicada($nomeCategoria)){
+       noticia::cadastrarCategoria($nomeCategoria);
     }
 };

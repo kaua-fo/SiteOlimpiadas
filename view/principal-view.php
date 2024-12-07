@@ -5,9 +5,9 @@
     <?php foreach ($listaNoticias as $topico) : ?>
         <a class="pag-link" href="<?= constant('URL_LOCAL_SITE_PAGINA').'detalhe'?>&noticia=<?= $topico["id"] ;?>">
             <div class="categoryCard">
-                <img src="<?= constant("URL_LOCAL_SITE").'assets/uploads/'.$topico["img"] ;?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
+                <img src="<?= constant("URL_LOCAL_SITE").'assets/uploads/'.$topico["imagem"] ;?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
                 <p class="mainCategoryCardTitle"><?= $topico["titulo"] ;?></p>
-                <p class="mainCategoryCardDescription"><?= reduzirStr($topico["descricao"], 200) ;?></p>
+                <p class="mainCategoryCardDescription"><?= noticia::reduzirStr($topico["descricao"], 200) ;?></p>
             </div>
         </a>
     <?php endforeach ?>

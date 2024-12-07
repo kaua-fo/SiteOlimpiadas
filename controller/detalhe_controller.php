@@ -11,8 +11,8 @@ if($_GET && isset($_GET['noticia'])){
 }else{
     $noticiaId = null;
 }
-$noticia = buscarNoticia($noticiaId);
-$noticiaRelacionada = noticiasRelacionadas( $noticia["categoriaId"], $noticia["id"]);
+$noticia = noticia::buscarNoticia($noticiaId);
+$noticiaRelacionada = noticia::noticiasRelacionadas( $noticia["categoriaId"], $noticia["id"]);
 
 if($paginaUrl === "detalhe"){
     acesso::protegerTela();
