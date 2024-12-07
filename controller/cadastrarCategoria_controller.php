@@ -16,11 +16,10 @@ if($nomeCategoria){
 if($paginaUrl === "cadastrarCategoria"){
     acesso::protegerTelaAdmin();
     $mensagemErro = false;
-    if(!noticia::verificarCategoriaDuplicada($nomeCategoria)){
-        $mensagemErro = true;
-    };
-    include_once('./view/cadastrarCategoria-view.php');
     if(noticia::verificarCategoriaDuplicada($nomeCategoria)){
-       noticia::cadastrarCategoria($nomeCategoria);
+        noticia::cadastrarCategoria($nomeCategoria);
+    }else{
+        $mensagemErro = true;
     }
+    include_once('./view/cadastrarCategoria-view.php');
 };

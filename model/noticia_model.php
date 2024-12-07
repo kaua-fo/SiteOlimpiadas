@@ -190,4 +190,24 @@ class Noticia
     };
     }
 
+    public static function verificarTituloExistente($titulo)
+    {
+    $pdo = Database::conexao();
+    $sql = "SELECT * FROM noticia WHERE titulo = '$titulo'";
+    $stmt = $pdo->prepare($sql);
+    $list = $stmt->execute();
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return ($list)?$list[0]:false;
+    }
+
+    public static function deletarNoticia($titulo)
+    {
+    if (!$titulo){return;}
+    $sql = "DELETE FROM  `noticia` WHERE titulo = '$titulo'";
+    $pdo = Database::conexao();
+    $stmt = $pdo->prepare($sql);
+    $result = $stmt->execute();
+    return ($result)?true:false;
+    }
+
 }

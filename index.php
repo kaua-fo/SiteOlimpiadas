@@ -32,6 +32,9 @@ if($paginaUrl === "principal"){
 }elseif($paginaUrl === "detalhe"){
     include_once('model/noticia_model.php');
     include_once('controller/detalhe_controller.php');
+}elseif($paginaUrl === 'deletarNoticia'){
+    include_once('model/noticia_model.php');
+    include_once('controller/deletarNoticia_controller.php');
 }elseif($paginaUrl === "sair"){
     acesso::limparSessao();
 }else{
