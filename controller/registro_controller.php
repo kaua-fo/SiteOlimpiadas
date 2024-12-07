@@ -28,9 +28,10 @@ if($paginaUrl === "registro"){
     $mensagemErro = false;
     if($_POST){
         if($objRegistro->verificarLoginDuplicado($login)){
-        $mensagemErro = true;
         $objRegistro->cadastrarRegistro();
-        };
+        }else{
+            $mensagemErro = true;
+        }
     };
     include_once('./view/registro-view.php');
 };
